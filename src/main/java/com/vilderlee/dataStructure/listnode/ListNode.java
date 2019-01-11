@@ -1,4 +1,4 @@
-package com.vilderlee.listnode;
+package com.vilderlee.dataStructure.listnode;
 
 /**
  * <pre>

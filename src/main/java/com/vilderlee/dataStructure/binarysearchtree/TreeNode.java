@@ -1,4 +1,4 @@
-package com.vilderlee.binarysearchtree;
+package com.vilderlee.dataStructure.binarysearchtree;
 
 
 /**

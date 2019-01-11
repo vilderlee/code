@@ -1,8 +1,7 @@
-package com.vilderlee.listnode;
+package com.vilderlee.dataStructure.listnode;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.Stack;
 
 /**
  * 功能描述:

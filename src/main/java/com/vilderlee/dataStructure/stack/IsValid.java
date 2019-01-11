@@ -1,4 +1,4 @@
-package com.vilderlee.stack;
+package com.vilderlee.dataStructure.stack;
 
 import java.util.HashMap;
 import java.util.Map;

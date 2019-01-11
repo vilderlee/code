@@ -1,4 +1,4 @@
-package com.vilderlee.array;
+package com.vilderlee.dataStructure.array;
 
 import java.util.HashSet;
 import java.util.Set;

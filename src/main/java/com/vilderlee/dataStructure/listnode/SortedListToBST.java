@@ -1,8 +1,6 @@
-package com.vilderlee.listnode;
+package com.vilderlee.dataStructure.listnode;
 
-import com.vilderlee.binarysearchtree.TreeNode;
-
-import java.util.Scanner;
+import com.vilderlee.dataStructure.binarysearchtree.TreeNode;
 
 /**
  * <pre>

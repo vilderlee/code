@@ -1,4 +1,4 @@
-package com.vilderlee.array;
+package com.vilderlee.dataStructure.array;
 
 /**
  * 功能描述:

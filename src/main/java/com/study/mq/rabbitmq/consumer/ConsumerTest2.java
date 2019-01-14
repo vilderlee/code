@@ -1,6 +1,6 @@
-package com.vilderlee.mq.rabbitmq.consumer;
+package com.study.mq.rabbitmq.consumer;
 
-import com.vilderlee.mq.rabbitmq.connect.RabbitMQConnectFactory;
+import com.study.mq.rabbitmq.connect.RabbitMQConnectFactory;
 
 import java.io.IOException;
 
@@ -12,7 +12,7 @@ import java.io.IOException;
  * VilderLee    2019/1/14      Create this file
  * </pre>
  */
-public class ConsumerTest {
+public class ConsumerTest2 {
     public static void main(String[] args) {
         RabbitMQConnectFactory factory = new RabbitMQConnectFactory();
         factory.connect();
@@ -22,6 +22,7 @@ public class ConsumerTest {
             while (true) {
                 Thread.sleep(2000);
                 factory.receive();
+
             }
 
         } catch (IOException e) {

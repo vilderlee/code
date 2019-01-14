@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.study.mybatis.mapper.UserInfoDao">
+
+    <resultMap id="getUserInfoResultMap" type="com.study.mybatis.User">
+        <constructor>
+            <arg column="" javaType=""></arg>
+        </constructor>
+        <result property="userId" column="UserId"></result>
+        <result property="userName" column="UserName"></result>
+        <result property="flag" column="Flag" typeHandler="com.study.mybatis.utils.FlagEnumHandler"></result>
+    </resultMap>
+
+    <sql id="getUserInfoSql">
+         select * from user_info
+    </sql>
+    <select id="getUserInfo" parameterType="java.lang.String" resultMap="getUserInfoResultMap">
+        <include refid="getUserInfoSql">
+        </include> where userId = #{userId}
+        <if test="userId!=null">
+
+        </if>
+    </select>
+
+
+    <insert id="insertUserInfo" parameterType="com.study.mybatis.User">
+        insert into user_info (userId,userName,flag) values (#{userId},#{userName},#{flag,typeHandler=com.study.mybatis.utils.FlagEnumHandler})
+    </insert>
+</mapper>

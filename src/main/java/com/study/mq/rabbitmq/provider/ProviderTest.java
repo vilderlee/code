@@ -1,6 +1,6 @@
-package com.vilderlee.mq.rabbitmq.provider;
+package com.study.mq.rabbitmq.provider;
 
-import com.vilderlee.mq.rabbitmq.connect.RabbitMQConnectFactory;
+import com.study.mq.rabbitmq.connect.RabbitMQConnectFactory;
 
 /**
  * <pre>

@@ -1,4 +1,4 @@
-package com.vilderlee.mq.rabbitmq.connect;
+package com.study.mq.rabbitmq.connect;
 
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.CancelCallback;

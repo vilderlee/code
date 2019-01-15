@@ -1,15 +1,20 @@
 package com.study.mq.rabbitmq.connect;
 
+import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.BuiltinExchangeType;
 import com.rabbitmq.client.CancelCallback;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
+import com.rabbitmq.client.DefaultConsumer;
 import com.rabbitmq.client.DeliverCallback;
+import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.MessageProperties;
 import com.vilderlee.serialize.SerializeUtil;
+import org.apache.commons.collections.map.HashedMap;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
 /**
@@ -62,7 +67,7 @@ public class RabbitMQConnectFactory {
              *  boolean durable,    是否持久化（高可用的保证,保证交换机持久化）
              *  boolean autoDelete, 是否自动删除,当它不被使用的Exchange服务器会自动删除
              *  boolean internal,   是否内部存在，如果为true那么这个Exchange不能直接给客户端使用
-             *  Map<String, Object> arguments   额外参数,在spring与rabbitMQ整合的代码中,该参数为空
+             *  Map<String, Object> arguments   额外参数
              */
             //10.声明一个Exchange，如果MQ服务器中没有则新建。
             channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT, true, false, false, null);
@@ -72,10 +77,17 @@ public class RabbitMQConnectFactory {
              *  boolean durable, 是否持久化（高可用的保证,保证队列持久化）
              *  boolean exclusive,   是否时独占的,true为独占即为该连接中才可使用
              *  boolean autoDelete,  是否自动删除,当它不被使用的Queue服务器会自动删除
-             *  Map<String, Object> arguments    额外参数,在spring与rabbitMQ整合的代码中,该参数为空
+             *  Map<String, Object> arguments    额外参数
              */
             //11.声明一个Queue，如果MQ服务器中没有则新建。
-            channel.queueDeclare(QUEUE_NAME, true, false, false, null);
+            Map<String, Object> arguments = new HashedMap();
+            //设置过期时间(Time To Live简称TTL)
+            arguments.put("x-message-ttl", 60000);
+            //设置队列长度
+            arguments.put("x-max-length", 2);
+            //设置死信队列
+            arguments.put("x-dead-letter-exchange", "dead_letter_exchange");
+            channel.queueDeclare(QUEUE_NAME, false, false, false, arguments);
             /**
              *  String queue,   Queue名称
              *  String exchange,    Exchange名称
@@ -186,6 +198,27 @@ public class RabbitMQConnectFactory {
         }
     }
 
+    class Consumer extends DefaultConsumer{
 
+        private Message message;
+        public Consumer(Channel channel) {
+            super(channel);
+        }
+
+        @Override
+        public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+            Object object = SerializeUtil.unSerialize(body);
+            this.message.setDeliverTag(envelope.getDeliveryTag());
+            this.message.setObject(object);
+        }
+
+        public Message getMessage() {
+            return message;
+        }
+
+        public void setMessage(Message message) {
+            this.message = message;
+        }
+    }
 
 }

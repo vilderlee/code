@@ -3,9 +3,6 @@
 <mapper namespace="com.study.mybatis.mapper.UserInfoDao">
 
     <resultMap id="getUserInfoResultMap" type="com.study.mybatis.User">
-        <constructor>
-            <arg column="" javaType=""></arg>
-        </constructor>
         <result property="userId" column="UserId"></result>
         <result property="userName" column="UserName"></result>
         <result property="flag" column="Flag" typeHandler="com.study.mybatis.utils.FlagEnumHandler"></result>
@@ -16,10 +13,8 @@
     </sql>
     <select id="getUserInfo" parameterType="java.lang.String" resultMap="getUserInfoResultMap">
         <include refid="getUserInfoSql">
-        </include> where userId = #{userId}
-        <if test="userId!=null">
-
-        </if>
+        </include>
+         where userId = #{userId}
     </select>
 
 

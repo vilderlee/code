@@ -94,7 +94,17 @@ public class RabbitMQConnectFactory {
 
     public void send(Object object) throws Exception {
         byte[] bytes = SerializeUtil.serialize(object);
-        //开启Confirm机制
+
+        /***
+         *
+         *  Return机制:
+         *      确保消息发送到Queue中,当发送失败,当前方法回调
+         *  Confirm机制:
+         *      需要在channel中开启 channel.confirmSelect()
+         *      确保消息发送到Exchange中,当数据发送到Exchange,第一个参数会回调,发送失败第二个参数回调
+         *
+         */
+        //13.开启Confirm机制
         channel.confirmSelect();
         try {
             channel.addReturnListener(returnMessage -> {
@@ -118,14 +128,51 @@ public class RabbitMQConnectFactory {
     }
 
     public void receive() throws IOException {
+
+        /**
+         *
+         * 消费者接收消息后需通过该方法回调进行消息处理
+         *
+         */
         DeliverCallback deliverCallback = (consumer, deliver) -> {
             System.out.println("consumer:" + consumer);
             Object object = SerializeUtil.unSerialize(deliver.getBody());
             System.out.println("接收到的数据:" + object.toString());
 
+            /**
+             *
+             * long deliveryTag,  消息投递唯一标识
+             * boolean multiple
+             *                 true:确认所有的消息包括已经接受的投递标识,
+             *                 false:确认已经接受的投递标识
+             */
+            //消息确认被确认
+            channel.basicAck(deliver.getEnvelope().getDeliveryTag(), true);
+
+            /**
+             * long deliveryTag,    消息投递唯一标识
+             * boolean multiple,
+             *                  true:拒绝所有的消息包括已经接受的投递标识,
+             *              *   false:拒绝已经接受的投递标识
+             * boolean requeue  是否重新放入队列
+             *
+             */
+            //消息没有被确认
+            channel.basicNack(deliver.getEnvelope().getDeliveryTag(), true, true);
         };
 
-        channel.basicConsume(QUEUE_NAME, true, deliverCallback, (CancelCallback) null);
+        /**
+         * 设置通道的请求数,其实这里指的是在消费端消息最大的存储数（也就是没有被消费者确认消费的消息）
+         */
+        channel.basicQos(3);
+        /**
+         * String queue,    队列名称
+         * boolean autoAck, 是否主动确认(不太建议，可能会造成消息丢失情况，当)
+         * DeliverCallback deliverCallback, 消息被投递时的回调函数
+         * CancelCallback cancelCallback    消费者被取消是的回调函数
+         */
+        //接受消息
+        channel.basicConsume(QUEUE_NAME, false, deliverCallback, (CancelCallback) null);
     }
 
     public void close() {
@@ -138,4 +185,7 @@ public class RabbitMQConnectFactory {
             e.printStackTrace();
         }
     }
+
+
+
 }

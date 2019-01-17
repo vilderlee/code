@@ -1,4 +1,4 @@
-package com.vilderlee.collection;
+package com.vilderlee.collection.list;
 
 import java.util.ArrayList;
 

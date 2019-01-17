@@ -1,4 +1,4 @@
-package com.vilderlee.collection;
+package com.vilderlee.collection.list;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -14,5 +14,6 @@ import java.util.List;
 public class LinkedListTest {
     public static void main(String[] args) {
         List list = new LinkedList();
+        list.add("a");
     }
 }

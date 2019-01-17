@@ -118,6 +118,11 @@ public class RabbitMQConnectFactory {
          */
         //13.开启Confirm机制
         channel.confirmSelect();
+
+        //14.RabbitMQ有事务处理模式。
+        channel.txSelect();
+        channel.txCommit();
+        channel.txRollback();
         try {
             channel.addReturnListener(returnMessage -> {
                 System.out.println("Exchange:" + returnMessage.getExchange());

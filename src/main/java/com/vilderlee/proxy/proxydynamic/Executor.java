@@ -15,7 +15,7 @@ import java.util.List;
  */
 public interface Executor {
 
-    int update(String sql, Object parameter, Statement statement) throws SQLException;
+    int update(String sql, Object parameter) throws SQLException;
 
-    List query() throws SQLException;
+    List query(String sql, Object parameter) throws SQLException;
 }

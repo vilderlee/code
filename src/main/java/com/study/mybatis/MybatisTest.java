@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 功能描述:
@@ -34,16 +36,20 @@ public class MybatisTest {
             System.out.println(user.toString());
 
             User insertUser = new User();
-            insertUser.setUserId("0004");
+            insertUser.setUserId("0005");
             insertUser.setUserName("wangzhao");
             insertUser.setFlag(FlagEnum.FLAG_FALSE);
 
-            session.insert("com.study.mybatis.mapper.UserInfoDao.insertUserInfo", insertUser);
-
-            User user2 = session.selectOne("com.study.mybatis.mapper.UserInfoDao.getUserInfo", "0002");
-            System.out.println(user2.toString());
-            session.commit();
-            session.close();
+            User insertUser2 = new User();
+            insertUser2.setUserId("0006");
+            insertUser2.setUserName("wangzhao");
+            insertUser2.setFlag(FlagEnum.FLAG_FALSE);
+            List<User> list = new ArrayList<>();
+            list.add(insertUser);
+            list.add(insertUser2);
+            userInfoDao.insertUserInfoBatch(list);
+//            session.commit();
+//            session.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

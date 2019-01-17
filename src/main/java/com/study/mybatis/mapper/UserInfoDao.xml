@@ -21,4 +21,12 @@
     <insert id="insertUserInfo" parameterType="com.study.mybatis.User">
         insert into user_info (userId,userName,flag) values (#{userId},#{userName},#{flag,typeHandler=com.study.mybatis.utils.FlagEnumHandler})
     </insert>
+
+
+    <insert id="insertUserInfoBatch" parameterType="com.study.mybatis.User">
+        insert into user_info (userId,userName,flag) values
+        <foreach collection="list" item="user" separator=",">
+            (#{user.userId},#{user.userName},#{user.flag,typeHandler=com.study.mybatis.utils.FlagEnumHandler})
+        </foreach>
+    </insert>
 </mapper>

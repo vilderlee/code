@@ -33,7 +33,18 @@ public class Invocation implements InvocationHandler {
         this.realObject = realObject;
     }
 
-    @Override public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+    /**
+     * invoke方法：在被监控的行为执行时，会被JVM拦截
+     *
+     * @param proxy
+     * @param method 主要的业务方法，被监控的行为方法
+     * @param args   主要业务方法参数
+     * @return
+     * @throws Throwable
+     */
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         init();
         Object o = method.invoke(realObject, args);
         close();
@@ -44,7 +55,8 @@ public class Invocation implements InvocationHandler {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-            preparedStatement =connection.prepareStatement("select * from user_info");
+            preparedStatement = connection.prepareStatement("");
+            resultSet = preparedStatement.executeQuery();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

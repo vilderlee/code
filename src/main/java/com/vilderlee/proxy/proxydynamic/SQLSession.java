@@ -1,5 +1,6 @@
 package com.vilderlee.proxy.proxydynamic;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,11 +17,22 @@ import java.util.List;
  */
 public class SQLSession implements Executor {
 
-    @Override public int update(String sql, Object parameter, Statement statement) throws SQLException {
+    private PreparedStatement statement;
+
+    @Override
+    public int update(String sql, Object parameter) throws SQLException {
         return 0;
     }
 
-    @Override public List query() throws SQLException {
-        return null;
+    @Override
+    public List query(String sql, Object parameter) throws SQLException {
+        List list = new ArrayList();
+        ResultSet resultSet = statement.executeQuery(sql);
+        int i = 0;
+        while (resultSet.next()) {
+            list.add(resultSet.getObject(i++));
+        }
+        resultSet.close();
+        return list;
     }
 }

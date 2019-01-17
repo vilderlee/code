@@ -14,13 +14,14 @@ import java.sql.PreparedStatement;
 public class ProxyObject {
 
 
-    public Object getInstance(SQLSession sqlSession) throws Exception {
-        return Proxy.newProxyInstance(Executor.class.getClassLoader(), new Class[]{Executor.class}, new Invocation(sqlSession));
+    public static Executor getInstance(Class c) throws Exception {
+        Executor obj = (Executor) c.newInstance();
+        Invocation invocation = new Invocation(obj);
+        return (Executor) Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), invocation);
     }
 
     public static void main(String[] args) throws Exception {
-        ProxyObject proxyObject = new ProxyObject();
-        Executor executor = (Executor) proxyObject.getInstance(new SQLSession());
-        executor.query();
+        Executor sqlSession = ProxyObject.getInstance(SQLSession.class);
+        sqlSession.query("", null);
     }
 }

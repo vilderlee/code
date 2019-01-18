@@ -13,6 +13,16 @@ import java.lang.reflect.Proxy;
 public class ProxyFactory {
 
     public static Object getInstance(Class clz) throws IllegalAccessException, InstantiationException {
-        return Proxy.newProxyInstance(clz.getClassLoader(), clz.getInterfaces(), new Invocation(clz.newInstance()));
+
+        /**
+         *
+         *  ClassLoader loader, 被代理类的加载器
+         *  Class<?>[] interfaces,  被代理类的所有接口
+         *  InvocationHandler h 调用的处理器
+         *
+         *  return 代理对象
+         */
+        Object object = Proxy.newProxyInstance(clz.getClassLoader(), clz.getInterfaces(), new Invocation(clz.newInstance()));
+        return object;
     }
 }

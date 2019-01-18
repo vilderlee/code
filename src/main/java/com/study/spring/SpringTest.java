@@ -1,12 +1,7 @@
 package com.study.spring;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.ResourceLoader;
 
 /**
  * <pre>
@@ -18,11 +13,8 @@ import org.springframework.core.io.ResourceLoader;
  */
 public class SpringTest {
     public static void main(String[] args) {
-        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
-        Resource resource = new ClassPathResource("spring.xml");
-        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
-        reader.setResourceLoader((ResourceLoader) reader);
-
-        reader.loadBeanDefinitions(resource);
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        Test t = (Test) applicationContext.getBean("test");
+        t.print();
     }
 }

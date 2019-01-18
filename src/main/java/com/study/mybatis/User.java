@@ -2,6 +2,8 @@ package com.study.mybatis;
 
 import com.study.mybatis.utils.FlagEnum;
 
+import java.io.Serializable;
+
 /**
  * 功能描述:
  *
@@ -9,7 +11,20 @@ import com.study.mybatis.utils.FlagEnum;
  * @auther vilderlee
  * @date 2019-01-12 17:13
  */
-public class User {
+public class User implements Serializable {
+
+    private static final long serialVersionUID = -7273111370871749479L;
+
+    public User() {
+    }
+
+    public User(String userId, String userName, FlagEnum flag, String country) {
+        this.userId = userId;
+        this.userName = userName;
+        this.flag = flag;
+        this.country = country;
+    }
+
     private String userId;
     private String userName;
     private FlagEnum flag;

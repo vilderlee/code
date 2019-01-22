@@ -12,7 +12,7 @@ public class Test {
 
     public static void main(String[] args) {
         try {
-            Eat eat = (Eat) ProxyFactory.getInstance(Person.class);
+            Eat eat = (Eat) ProxyFactory.getInstance(Dog.class);
             eat.eat("肉");
         } catch (IllegalAccessException e) {
             e.printStackTrace();

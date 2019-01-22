@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+    <TITLE> ZTREE DEMO </TITLE>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="zTreeStyle/zTreeStyle.css" type="text/css">
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ztree.core.js"></script>
+    <script LANGUAGE="JavaScript">
+        var zTreeObj;
+        // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
+        var setting = {
+            treeId: "tree",
+            view: {
+                addDiyDom: addDiyDom
+            }
+        };
+        // zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
+        var zNodes = [
+            {
+                name: "test1",
+                open: true,
+                children: [
+                    {name: "test1_1", click: "add();"},
+                    {name: "test1_2"}
+                ]
+            },
+            {
+                name: "test2", open: true, children: [
+                    {name: "test2_1"}, {name: "test2_2"}]
+            }
+        ];
+        $(document).ready(function () {
+            zTreeObj = $.fn.zTree.init($("#tree"), setting, zNodes);
+        });
+
+
+        function addDiyDom(treeId, treeNode) {
+            console.info("treeId:" + treeId);
+            console.info("treeNode:" + treeNode.name);
+
+            var name = treeNode.name;
+            if (name == "test1") {
+                var aObj = $("#" + treeNode.tId + "_a");
+                var editStr = "<span id='diyBtn_space_" + treeNode.id + "' >sdadadasdsd s</span>"
+                    + "<button type='button' class='diyBtn1' id='diyBtn_" + treeNode.id
+                    + "' title='" + treeNode.name + "' onfocus='this.blur();'>confirm</button>";
+                aObj.append(editStr);
+                var btn = $("#diyBtn_" + treeNode.id);
+                if (btn) btn.bind("click", function () {
+                    alert("diy Button for " + treeNode.name);
+                });
+            }
+
+            ;
+
+            if ($("#diyBtn_" + treeNode.id).length > 0) return;
+
+        };
+
+
+        function add() {
+            var nodes = zTreeObj.transformToArray(zTreeObj.getNodes());
+            console.info(nodes);
+            var nodeAdd;
+            //获取当前选中的节点
+            for (var i = 0; i < nodes.length; i++) {
+                var node = nodes[i];
+                if ("test1_1" == node.name) {
+                    nodeAdd = node;
+                }
+            }
+            console.info(nodeAdd);
+            //生成新的子节点
+            var childNode = [{name: "test1_2"}];
+            //动态添加子节点 第一个参数是要加载的父节点 第二个参数是新的节点
+            zTreeObj.addNodes(nodeAdd,childNode);
+        }
+    </script>
+</HEAD>
+<BODY>
+<div>
+    <ul id="tree" class="ztree"></ul>
+</div>
+</BODY>
+</HTML>

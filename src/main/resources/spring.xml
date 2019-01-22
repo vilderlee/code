@@ -4,5 +4,6 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-    <bean ></bean>
+    <bean id="post" class="com.study.spring.MyBeanPostProcessor"></bean>
+    <bean id="test" class="com.study.spring.Test"></bean>
 </beans>

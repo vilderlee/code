@@ -18,8 +18,11 @@ import org.springframework.core.io.ResourceLoader;
  */
 public class SpringTest {
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        TestInterface test = (TestInterface) context.getBean("test");
-        System.out.println(test.test());
+        DefaultListableBeanFactory beanFactory = new DefaultListableBeanFactory();
+        Resource resource = new ClassPathResource("spring.xml");
+        XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
+        reader.setResourceLoader((ResourceLoader) reader);
+
+        reader.loadBeanDefinitions(resource);
     }
 }

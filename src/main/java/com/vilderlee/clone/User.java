@@ -1,33 +1,30 @@
-package com.study.mybatis;
-
-import com.study.mybatis.utils.FlagEnum;
+package com.vilderlee.clone;
 
 import java.io.Serializable;
 
 /**
- * 功能描述:
- *
- * @package com.study.mybatis
- * @auther vilderlee
- * @date 2019-01-12 17:13
+ * <pre>
+ * Modify Information:
+ * Author        Date          Description
+ * ============ ============= ============================
+ * VilderLee    2019/1/21      Create this file
+ * </pre>
  */
-public class User implements Serializable {
+public class User implements Serializable, Cloneable {
 
     private static final long serialVersionUID = -7273111370871749479L;
 
     public User() {
     }
 
-    public User(String userId, String userName, FlagEnum flag, String country) {
+    public User(String userId, String userName, String country) {
         this.userId = userId;
         this.userName = userName;
-        this.flag = flag;
         this.country = country;
     }
 
     private String userId;
     private String userName;
-    private FlagEnum flag;
     private String country;
 
     public String getCountry() {
@@ -36,14 +33,6 @@ public class User implements Serializable {
 
     public void setCountry(String country) {
         this.country = country;
-    }
-
-    public FlagEnum getFlag() {
-        return flag;
-    }
-
-    public void setFlag(FlagEnum flag) {
-        this.flag = flag;
     }
 
     public String getUserId() {
@@ -62,13 +51,14 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userId='" + userId + '\'' +
-                ", userName='" + userName + '\'' +
-                ", flag=" + flag +
-                ", country='" + country + '\'' +
-                '}';
+    @Override public String toString() {
+        return "User{" + "userId='" + userId + '\'' + ", userName='" + userName + '\'' + ", country='" + country + '\'' + '}';
+    }
+
+    @Override protected User clone() throws CloneNotSupportedException {
+        User user = null;
+        user = (User) super.clone();
+
+        return user;
     }
 }

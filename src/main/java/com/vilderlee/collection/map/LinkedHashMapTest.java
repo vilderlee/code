@@ -15,8 +15,9 @@ public class LinkedHashMapTest {
     public static void main(String[] args) {
         LinkedHashMap map = new LinkedHashMap();
         map.put("1", "a");
-        map.put("2", "b");
         map.put("3", "c");
+        map.put("2", "b");
+
         map.put("4", "d");
         map.put("5", "e");
 

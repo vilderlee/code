@@ -81,13 +81,13 @@ public class RabbitMQConnectFactory {
              */
             //11.声明一个Queue，如果MQ服务器中没有则新建。
             Map<String, Object> arguments = new HashedMap();
-            //设置过期时间(Time To Live简称TTL)
-            arguments.put("x-message-ttl", 60000);
-            //设置队列长度
-            arguments.put("x-max-length", 2);
-            //设置死信队列
-            arguments.put("x-dead-letter-exchange", "dead_letter_exchange");
-            channel.queueDeclare(QUEUE_NAME, false, false, false, arguments);
+//            //设置过期时间(Time To Live简称TTL)
+//            arguments.put("x-message-ttl", 60000);
+//            //设置队列长度
+//            arguments.put("x-max-length", 2);
+//            //设置死信队列
+//            arguments.put("x-dead-letter-exchange", "dead_letter_exchange");
+            channel.queueDeclare(QUEUE_NAME, true, false, false, arguments);
             /**
              *  String queue,   Queue名称
              *  String exchange,    Exchange名称
@@ -120,9 +120,9 @@ public class RabbitMQConnectFactory {
         channel.confirmSelect();
 
         //14.RabbitMQ有事务处理模式。
-        channel.txSelect();
-        channel.txCommit();
-        channel.txRollback();
+//        channel.txSelect();
+//        channel.txCommit();
+//        channel.txRollback();
         try {
             channel.addReturnListener(returnMessage -> {
                 System.out.println("Exchange:" + returnMessage.getExchange());
@@ -132,8 +132,7 @@ public class RabbitMQConnectFactory {
                 System.out.println("Body:" + SerializeUtil.unSerialize(returnMessage.getBody()).toString());
             });
             channel.addConfirmListener((deliveryTag, multiple) -> {
-                System.out.println("deliveryTag1:" + deliveryTag);
-                System.out.println("multiple1:" + multiple);
+                System.out.println(String.format("deliveryTag1: %d , multiple1: %b" ,deliveryTag, multiple));
             }, (deliveryTag, multiple) -> {
                 System.out.println("deliveryTag2:" + deliveryTag);
                 System.out.println("multiple2:" + multiple);
@@ -171,17 +170,17 @@ public class RabbitMQConnectFactory {
              * boolean multiple,
              *                  true:拒绝所有的消息包括已经接受的投递标识,
              *              *   false:拒绝已经接受的投递标识
-             * boolean requeue  是否重新放入队列
+             * boolean requeue  是否重新放入队列 false直接丢弃，相当于告诉队列可以直接删除掉
              *
              */
             //消息没有被确认
-            channel.basicNack(deliver.getEnvelope().getDeliveryTag(), true, true);
+//            channel.basicNack(deliver.getEnvelope().getDeliveryTag(), true, false);
         };
 
         /**
          * 设置通道的请求数,其实这里指的是在消费端消息最大的存储数（也就是没有被消费者确认消费的消息）
          */
-        channel.basicQos(3);
+        channel.basicQos(1);
         /**
          * String queue,    队列名称
          * boolean autoAck, 是否主动确认(不太建议，可能会造成消息丢失情况，当)

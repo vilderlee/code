@@ -1,5 +1,7 @@
 package com.vilderlee.spi;
 
+import com.alibaba.dubbo.common.URL;
+
 /**
  * <pre>
  * Modify Information:
@@ -11,5 +13,9 @@ package com.vilderlee.spi;
 public class SayByChinese implements Say{
     @Override public void sayHello() {
         System.out.println("你好！");
+    }
+
+    @Override public void export(URL url) {
+        System.out.println("chinese");
     }
 }

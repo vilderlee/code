@@ -26,7 +26,7 @@ import java.util.concurrent.TimeoutException;
  * </pre>
  */
 public class RabbitMQConnectFactory {
-    private String QUEUE_NAME = "demoQueue";
+    private String QUEUE_NAME = "demoQueue78789";
     private String EXCHANGE_NAME = "demoExchange";
     private String ROUTINGKEY = "demoRoutingKey";
     private String RABBITMQ_VirtualHost = ConnectionFactory.DEFAULT_VHOST;

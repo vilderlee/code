@@ -1,5 +1,6 @@
 package com.vilderlee.spi;
 
+import com.alibaba.dubbo.common.URL;
 import com.alibaba.dubbo.common.extension.ExtensionLoader;
 
 /**
@@ -13,9 +14,11 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class DubboSPITest {
     public static void main(String[] args) {
         ExtensionLoader<Say> extensionLoader = ExtensionLoader.getExtensionLoader(Say.class);
-        Say chinese = extensionLoader.getExtension("chinese");
-        chinese.sayHello();
-        Say english = extensionLoader.getExtension("english");
-        english.sayHello();
+        Say say = extensionLoader.getAdaptiveExtension();
+
+
+//        say.sayHello();
+        URL url = URL.valueOf("test://localhost/test?say=english");
+        say.export(url);
     }
 }

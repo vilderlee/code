@@ -2,6 +2,8 @@ package com.study.mq.rabbitmq.provider;
 
 import com.study.mq.rabbitmq.connect.RabbitMQConnectFactory;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -18,14 +20,26 @@ public class ProviderTest {
         RabbitMQConnectFactory rabbitMQConnectFactory = new RabbitMQConnectFactory();
         rabbitMQConnectFactory.connect();
         int i = 0;
-        while (i < 10) {
+        while (i < 3) {
             User user = new User();
-            user.setAge(25);
-            user.setUserName("lichao");
+            user.setAge(i);
+            user.setUserName("lichao" + i);
             rabbitMQConnectFactory.send(user);
             i++;
         }
         TimeUnit.SECONDS.sleep(2);
-        rabbitMQConnectFactory.close();
+//        rabbitMQConnectFactory.close();
+
+        Map map = new HashMap(16);
+        map.put(1, "1");
+
+        try {
+            map.forEach((k,v)->{
+                map.remove(k);
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("xixixi");
     }
 }

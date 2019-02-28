@@ -17,6 +17,10 @@ import java.lang.reflect.Proxy;
  */
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
+    public MyBeanPostProcessor() {
+        System.out.println("MyBeanPostProcessor 已经初始化了");
+    }
+
     @Override
     public Object postProcessBeforeInitialization(final Object bean, String beanName) throws BeansException {
         System.out.println("哼！postProcessBeforeInitialization！！");

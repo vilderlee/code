@@ -13,6 +13,6 @@ import java.lang.annotation.Annotation;
 public class Main {
     public static void main(String[] args) {
         Annotation annotation = TestHolder.class.getAnnotation(Test.class);
-
+        System.out.println(annotation.annotationType() == Test.class);
     }
 }

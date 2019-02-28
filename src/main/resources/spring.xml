@@ -5,5 +5,13 @@
 
 
     <bean id="post" class="com.study.spring.MyBeanPostProcessor"></bean>
+    <bean id="test2" name="test4" class="com.study.spring.Test2"></bean>
     <bean id="test" class="com.study.spring.Test"></bean>
+
+    <bean id="test3" class="com.study.spring.Test3">
+        <property name="test2" ref="test4"></property>
+        <property name="autoStart" value="false"/>
+    </bean>
+
+    <bean class="com.study.spring.FactoryBeanTest"/>
 </beans>

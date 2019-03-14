@@ -8,6 +8,9 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.util.Iterator;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 /**
  * 类说明:
@@ -22,42 +25,7 @@ import java.util.Iterator;
 public class Server {
 
     public static void main(String[] args) throws IOException {
-
-        try (Selector selector = Selector.open(); ServerSocketChannel ssc = ServerSocketChannel.open();) {
-            ssc.socket().bind(new InetSocketAddress(8090));
-            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
-            while (true) {
-                Iterator iterator = selector.selectedKeys().iterator();
-                while (iterator.hasNext()) {
-                    SelectionKey key = (SelectionKey) iterator.next();
-                    if (key.isAcceptable()) {
-                        accept(key);
-//                        sayHello();
-                    }
-
-
-                }
-            }
-
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-
-    }
-
-    private static void accept(SelectionKey key) throws IOException {
-        ServerSocketChannel serverSocketChannel = (ServerSocketChannel) key.channel();
-        SocketChannel socketChannel = serverSocketChannel.accept();
-        socketChannel.configureBlocking(false);
-        socketChannel.register(key.selector(), SelectionKey.OP_READ);
-
-    }
-
-
-
-    private static void read(SelectionKey key) throws IOException {
-        SocketChannel socketChannel = (SocketChannel) key.channel();
-        socketChannel.register(key.selector(), SelectionKey.OP_ACCEPT);
-
+        MultiTimeServer server = new MultiTimeServer(9999);
+        new Thread(server).start();
     }
 }

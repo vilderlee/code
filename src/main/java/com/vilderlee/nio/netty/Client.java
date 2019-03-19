@@ -9,6 +9,8 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
 import io.netty.util.CharsetUtil;
 
@@ -31,22 +33,31 @@ public class Client {
         this.port = port;
     }
 
-    public void send(String sendString) throws InterruptedException {
+    public void send(String sendString) {
         EventLoopGroup work = new NioEventLoopGroup();
-        Bootstrap bootstrap = new Bootstrap();
-        bootstrap.group(work)
-                .channel(NioSocketChannel.class)
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        ch.pipeline().addLast(new EchoClientHandler(sendString));
+        try {
+            Bootstrap bootstrap = new Bootstrap();
+            bootstrap.group(work).channel(NioSocketChannel.class).handler(new ChannelInitializer<SocketChannel>() {
+                @Override protected void initChannel(SocketChannel ch) throws Exception {
+                    ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,
+                            Unpooled.copiedBuffer("##".getBytes())));
+                    ch.pipeline().addLast(new EchoClientHandler(sendString));
 
-                    }
-                }).connect(host,port);
+                }
+            });
+            ChannelFuture future = bootstrap.connect(host, port).sync();
+            future.channel().closeFuture().sync();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            work.shutdownGracefully();
+        }
+
     }
 
-    public static void main(String[] args) throws InterruptedException {
-        Client client = new Client("127.0.0.1",5678);
-        client.send("Hello World");
+    public static void main(String[] args){
+        Client client = new Client("127.0.0.1", 5678);
+        client.send("Hello World@@");
+//        client.send("Hello World");
     }
 }

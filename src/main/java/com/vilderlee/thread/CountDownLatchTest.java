@@ -28,8 +28,9 @@ public class CountDownLatchTest implements Runnable {
 
     public static void main(String[] args) {
         ExecutorService downloadBankStatementThreadPool = Executors.newFixedThreadPool(2);
+        CountDownLatch countDownLatch = new CountDownLatch(2);
         for (int i = 0; i < 3; i++) {
-            CountDownLatch countDownLatch = new CountDownLatch(2);
+
             downloadBankStatementThreadPool.execute(new CountDownLatchTest(countDownLatch,"active"));
             downloadBankStatementThreadPool.execute(new CountDownLatchTest(countDownLatch,"passive"));
 
@@ -47,6 +48,7 @@ public class CountDownLatchTest implements Runnable {
     public void run() {
         System.out.println("name:" + Thread.currentThread().getName());
         System.out.println("name:" + name);
+        System.out.println(countDownLatch);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {

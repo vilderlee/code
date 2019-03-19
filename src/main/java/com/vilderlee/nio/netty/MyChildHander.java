@@ -24,7 +24,7 @@ public class MyChildHander extends ChannelInboundHandlerAdapter {
         String string = byteBuffer.toString(CharsetUtil.UTF_8);
         System.out.println(string);
 
-        ctx.writeAndFlush(Unpooled.copiedBuffer("OK!",
+        ctx.writeAndFlush(Unpooled.copiedBuffer("OK!##",
                 CharsetUtil.UTF_8));
     }
 

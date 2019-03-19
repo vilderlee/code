@@ -1,7 +1,5 @@
 package com.vilderlee.collection.map;
 
-import com.vilderlee.dataStructure.heap.KthLargest;
-
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
@@ -32,7 +30,6 @@ public class HashMapTest {
             System.out.println("Key:" + K + ";Value:" + V);
         });
 
-
         System.out.println("----------------------------------------------");
 
         map.putIfAbsent("5", "as");
@@ -41,7 +38,6 @@ public class HashMapTest {
             System.out.println("Key:" + K + ";Value:" + V);
         });
         System.out.println("----------------------------------------------");
-
 
         Map table = new Hashtable();
         table.put("1", "a");
@@ -54,5 +50,6 @@ public class HashMapTest {
         System.out.println(table.size());
         System.out.println(table.get("3"));
         System.out.println("----------------------------------------------");
+
     }
 }

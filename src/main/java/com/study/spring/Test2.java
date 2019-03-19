@@ -12,6 +12,10 @@ package com.study.spring;
  */
 public class Test2 {
 
+    private Test2(){}
+
+    private Test2(String a){}
+
     public void test2(){
         System.out.println("sahdioashdiosahdioahdio");
     }

@@ -14,16 +14,16 @@ import org.springframework.beans.factory.FactoryBean;
  */
 public class FactoryBeanTest implements FactoryBean {
 
-    public FactoryBeanTest() {
-        System.out.println("FactoryBean 已经初始化生成了 Constructors");
-    }
+//    public FactoryBeanTest() {
+//        System.out.println("FactoryBean 已经初始化生成了 Constructors");
+//    }
 
     @Override public Object getObject() throws Exception {
         System.out.println("FactoryBean 已经初始化生成了");
-        return this;
+        return new Test();
     }
 
     @Override public Class<?> getObjectType() {
-        return null;
+        return Test.class;
     }
 }

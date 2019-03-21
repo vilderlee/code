@@ -11,5 +11,7 @@ package com.vilderlee.rpc;
  * </pre>
  */
 public interface HelloService {
-    void sayHello(String string);
+    String sayHello(String string);
+
+    HelloResponse doBusiness(HelloRequest request);
 }

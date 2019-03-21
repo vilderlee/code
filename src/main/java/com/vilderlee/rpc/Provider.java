@@ -1,6 +1,5 @@
 package com.vilderlee.rpc;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.net.URL;
@@ -16,13 +15,16 @@ import java.util.Properties;
  * VilderLee    2019/3/19      Create this file
  * </pre>
  */
-public class Service {
+public class Provider {
 
     private static final String CONFIG = "LocalServer.config";
-    private final String hostname;
-    private final Integer port;
+    private Integer port;
+    private Server server;
 
-    public Service() throws Exception {
+    /**
+     * 服务暴露
+     */
+    private void export(Object object) throws Exception {
         URL url = getClass().getClassLoader().getResource(CONFIG);
         if (null == url) {
             throw new Exception("This file is not empty!");
@@ -33,19 +35,15 @@ public class Service {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
-        hostname = properties.getProperty("hostname");
         port = Integer.valueOf(properties.getProperty("port"));
-    }
 
-    /**
-     * 服务暴露
-     */
-    public void export(Class<?> interfaceClass) throws Exception {
+        server = new Server(port,object);
+        server.start();
 
     }
 
     public static void main(String[] args) throws Exception {
-        Service service = new Service();
-        service.export(HelloService.class);
+        Provider service = new Provider();
+        service.export(new HelloServiceImpl());
     }
 }

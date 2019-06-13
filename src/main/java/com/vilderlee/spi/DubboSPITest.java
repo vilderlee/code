@@ -14,11 +14,12 @@ import com.alibaba.dubbo.common.extension.ExtensionLoader;
 public class DubboSPITest {
     public static void main(String[] args) {
         ExtensionLoader<Say> extensionLoader = ExtensionLoader.getExtensionLoader(Say.class);
-        Say say = extensionLoader.getAdaptiveExtension();
+        Say say = extensionLoader.getExtension("chinese");
 
+        say.sayHello();
 
-//        say.sayHello();
-        URL url = URL.valueOf("test://localhost/test?say=english");
-        say.export(url);
+        Say say1 = ExtensionLoader.getExtensionLoader(Say.class).getAdaptiveExtension();
+        URL url = URL.valueOf("test://localhost/test?say=english&hehe=chinese");
+        say1.export(url);
     }
 }

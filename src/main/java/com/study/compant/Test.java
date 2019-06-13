@@ -1,9 +1,12 @@
 package com.study.compant;
 
+import com.study.compant.bean.AbstractTx;
+import com.study.compant.bean.Tx1002;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * 类说明:
@@ -16,12 +19,12 @@ import java.util.Map;
  * </pre>
  */
 public class Test {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
 
-        Map map = context.getBeansWithAnnotation(DespositMode.class);
 
-        Object o = map.values();
+        AbstractTx tx1002 =  context.getBean(Tx1002.class);
+        tx1002.say();
 
     }
 }

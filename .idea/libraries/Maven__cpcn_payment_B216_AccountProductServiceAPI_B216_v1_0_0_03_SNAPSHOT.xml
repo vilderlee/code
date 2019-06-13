@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cpcn.payment:B216-AccountProductServiceAPI:B216-v1.0.0.03-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B216-AccountProductServiceAPI/B216-v1.0.0.03-SNAPSHOT/B216-AccountProductServiceAPI-B216-v1.0.0.03-20190604.174516-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B216-AccountProductServiceAPI/B216-v1.0.0.03-SNAPSHOT/B216-AccountProductServiceAPI-B216-v1.0.0.03-20190604.174516-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B216-AccountProductServiceAPI/B216-v1.0.0.03-SNAPSHOT/B216-AccountProductServiceAPI-B216-v1.0.0.03-20190604.174516-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

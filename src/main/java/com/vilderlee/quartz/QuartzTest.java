@@ -12,6 +12,8 @@ import org.quartz.impl.StdSchedulerFactory;
 import org.quartz.impl.triggers.CronTriggerImpl;
 
 import java.text.ParseException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <pre>
@@ -22,22 +24,28 @@ import java.text.ParseException;
  * </pre>
  */
 public class QuartzTest {
+
     public static void main(String[] args) {
+        Environment.init();
+
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
 
-            for (int i = 0; i < 2; i++) {
-                JobDetailImpl jobDetail = new JobDetailImpl();
-                jobDetail.setName("job" + i);
-                jobDetail.setGroup("jobGroup" + i);
-                jobDetail.setKey(new JobKey(jobDetail.getName(), jobDetail.getGroup()));
-                jobDetail.setJobClass(JobTest.class);
-                CronExpression cronExpression = new CronExpression("0 0/1 * * * ?");
-                CronTriggerImpl cronTrigger = new CronTriggerImpl();
-                cronTrigger.setName("cronTrigger" + i);
-                cronTrigger.setCronExpression(cronExpression);
-                scheduler.scheduleJob(jobDetail, cronTrigger);
-            }
+            JobDetailImpl jobDetail = new JobDetailImpl();
+            jobDetail.setName("job");
+            jobDetail.setGroup("jobGroup");
+            jobDetail.setKey(new JobKey(jobDetail.getName(), jobDetail.getGroup()));
+            jobDetail.setJobClass(JobTest.class);
+
+            Map map = new HashMap(1);
+            map.put("command", "1101");
+            JobDataMap jobDataMap = new JobDataMap(map);
+            jobDetail.setJobDataMap(jobDataMap);
+            CronExpression cronExpression = new CronExpression("0/5 * * * * ?");
+            CronTriggerImpl cronTrigger = new CronTriggerImpl();
+            cronTrigger.setName("cronTrigger");
+            cronTrigger.setCronExpression(cronExpression);
+            scheduler.scheduleJob(jobDetail, cronTrigger);
 
             scheduler.start();
         } catch (SchedulerException e) {

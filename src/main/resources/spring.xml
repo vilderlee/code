@@ -1,17 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+">
+    <context:component-scan base-package="com.study.spring"/>
+    <!--<bean id="post" class="com.study.spring.MyBeanPostProcessor"></bean>-->
+    <!--<bean id="test2" name="test2" class="com.study.spring.Test2">-->
+        <!--<property name="test3" ref="test3"/>-->
+    <!--</bean>-->
 
 
-    <bean id="post" class="com.study.spring.MyBeanPostProcessor"></bean>
-    <bean id="test2" name="test4" class="com.study.spring.Test2"></bean>
-    <bean id="test" class="com.study.spring.Test"></bean>
 
-    <bean id="test3" class="com.study.spring.Test3">
-        <property name="test2" ref="test4"></property>
-        <property name="autoStart" value="false"/>
-    </bean>
+    <!--<bean id="test" class="com.study.spring.Test" init-method="staticMethod" destroy-method="destroy"></bean>-->
 
-    <bean class="com.study.spring.FactoryBeanTest"/>
+    <!--<bean id="test2" class="com.study.spring.Test2"/>-->
+    <!--<bean id="test3" class="com.study.spring.Test3"/>-->
+
+
+
+    <!--<bean class="com.study.spring.FactoryBeanTest"/>-->
+
+    <!--<bean class="com.study.spring.SendEmailService"/>-->
+    <!--<bean class="com.study.spring.ReceiveEmailEvent">-->
+        <!--<constructor-arg value="https"/>-->
+    <!--</bean>-->
+
 </beans>

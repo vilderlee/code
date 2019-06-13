@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway" />
+  </component>
   <component name="JavaScriptSettings">
     <option name="languageLevel" value="ES6" />
   </component>
@@ -7,8 +10,25 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon/pom.xml" />
+        <option value="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway/pom.xml" />
+        <option value="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI/pom.xml" />
+        <option value="$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0/pom.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="trunkUrl" value="http://192.168.143.143/svn/R45/Branch/B216-AccountProductNew/7111-EAccountGateway" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
 </project>

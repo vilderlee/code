@@ -20,5 +20,6 @@ public class ReceiveEmailEvent extends ApplicationEvent {
      */
     public ReceiveEmailEvent(Object source) {
         super(source);
+        System.out.println(source);
     }
 }

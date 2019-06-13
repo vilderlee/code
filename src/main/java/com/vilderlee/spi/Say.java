@@ -12,11 +12,11 @@ import com.alibaba.dubbo.common.extension.SPI;
  * VilderLee    2019/1/10      Create this file
  * </pre>
  */
-@SPI("chinese")
+@SPI
 public interface Say {
     void sayHello();
 
 
-    @Adaptive
+    @Adaptive({"hehe"})
     void export(URL url);
 }

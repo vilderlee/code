@@ -3,6 +3,7 @@ package com.study.spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 
 /**
@@ -14,22 +15,11 @@ import java.lang.reflect.Constructor;
  * </pre>
  */
 public class SpringTest {
-    public static void main(String[] args) {
-//        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-//
-//        Test test = (Test) context.getBean("factoryBeanTest");
-//
-//        System.out.println(test.test());
-
-        try {
-            Constructor[] constructors = Test2.class.getDeclaredConstructors();
-            constructors[0].setAccessible(true);
-
-            Test2 test2s = (Test2) constructors[0].newInstance();
-            test2s.test2();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws IOException {
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
+        Test3 t = (Test3) context.getBean("test3");
+        t.test();
+//        ((ClassPathXmlApplicationContext) context).start();
+        System.in.read();
     }
 }

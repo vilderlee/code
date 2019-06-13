@@ -5,6 +5,7 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -15,7 +16,7 @@ import org.springframework.context.ApplicationContextAware;
  * @auther vilderlee
  * @date 2019-01-17 20:50
  */
-public class Test extends StaticTest implements BeanNameAware, BeanFactoryAware, InitializingBean,TestInterface, ApplicationContextAware {
+public class Test extends StaticTest implements BeanNameAware, BeanFactoryAware, InitializingBean, ApplicationContextAware {
 
     public Test() {
         System.out.println("这是我的构造方法");
@@ -24,6 +25,7 @@ public class Test extends StaticTest implements BeanNameAware, BeanFactoryAware,
     static {
         System.out.println("我是一个静态代码块");
     }
+
 
     public static void staticMethod(){
         System.out.println("这是一个静态方法");
@@ -46,13 +48,13 @@ public class Test extends StaticTest implements BeanNameAware, BeanFactoryAware,
         System.out.println("经常被用");
     }
 
-    @Override
-    public String test(){
-        return "This is test method!";
-    }
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         System.out.println("我在哪儿");
+    }
+
+    public void destroy(){
+        System.out.println("Destroy~~~~~");
     }
 }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.vilderlee.quartz.mapper.ProcessControlDao">
+
+    <select id="getProcessControlByMap" parameterType="java.util.HashMap"
+            resultType="com.vilderlee.quartz.entity.ProcessControl">
+        SELECT
+          *
+        FROM
+          ProcessControl
+        WHERE
+          DepositMode = #{depositMode}
+        AND
+          InstitutionID = #{institutionID}
+
+    </select>
+</mapper>

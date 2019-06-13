@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon/B216-EAccountCommon.iml" filepath="$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon/B216-EAccountCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway/B216-EAccountGateway.iml" filepath="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway/B216-EAccountGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI/B216-EAccountGatewayAPI.iml" filepath="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI/B216-EAccountGatewayAPI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0/B216-ProjectParent.iml" filepath="$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0/B216-ProjectParent.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/code.iml" filepath="$PROJECT_DIR$/.idea/code.iml" />
     </modules>
   </component>

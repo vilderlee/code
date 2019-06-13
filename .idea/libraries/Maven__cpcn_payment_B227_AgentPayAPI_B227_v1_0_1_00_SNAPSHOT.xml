@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cpcn.payment:B227-AgentPayAPI:B227-v1.0.1.00-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B227-AgentPayAPI/B227-v1.0.1.00-SNAPSHOT/B227-AgentPayAPI-B227-v1.0.1.00-20190508.004629-14.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B227-AgentPayAPI/B227-v1.0.1.00-SNAPSHOT/B227-AgentPayAPI-B227-v1.0.1.00-20190508.004629-14-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/B227-AgentPayAPI/B227-v1.0.1.00-SNAPSHOT/B227-AgentPayAPI-B227-v1.0.1.00-20190508.004629-14-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

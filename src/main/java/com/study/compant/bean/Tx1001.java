@@ -1,6 +1,7 @@
 package com.study.compant.bean;
 
 import com.study.compant.DespositMode;
+import org.springframework.core.annotation.Order;
 
 /**
  * 类说明:
@@ -13,8 +14,11 @@ import com.study.compant.DespositMode;
  * </pre>
  */
 @DespositMode(value = "tx1001", mode = 10)
-public class Tx1001 {
-    public void tx1001(){
+@Order(1)
+public class Tx1001 extends AbstractTx{
+
+
+    @Override protected void tx1002() {
         System.out.println("This is Tx1001 !!!");
     }
 }

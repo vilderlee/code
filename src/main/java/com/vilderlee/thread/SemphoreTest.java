@@ -24,7 +24,7 @@ public class SemphoreTest implements Runnable {
 //            System.out.println(Thread.currentThread().getName() + "尝试取得" + semaphore.tryAcquire(3));
             System.out.println("-----"+semaphore.availablePermits());
             System.out.println(Thread.currentThread().getName() + "--取得");
-            semaphore.acquire(3);
+            semaphore.acquire(5);
             System.out.println(semaphore.availablePermits());
             System.out.println(Thread.currentThread().getName() + "--释放");
             semaphore.release(2);

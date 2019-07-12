@@ -31,8 +31,11 @@ public class ZkClientListenTest {
         ZkClient zkClient = new ZkClient("39.104.159.18:2181", 10000000);
         ZKListen zkListen = new ZKListen(zkClient);
 
-        ExecutorService service = Executors.newFixedThreadPool(4);
-        service.execute(zkListen);
+        new Thread(zkListen).start();
+        new Thread(zkListen).start();
+
+//        ExecutorService service = Executors.newFixedThreadPool(4);
+//        service.execute(zkListen);
     }
 
 

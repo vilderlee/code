@@ -25,7 +25,7 @@ public class CountDownLatchTest implements Runnable {
         this.name = name;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService downloadBankStatementThreadPool = Executors.newFixedThreadPool(2);
         CountDownLatch countDownLatch = new CountDownLatch(2);
 

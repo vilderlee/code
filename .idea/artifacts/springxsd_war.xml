@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springxsd:war">
+    <output-path>$PROJECT_DIR$/springxsd/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springxsd</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="spring-xsd.war">
+      <element id="artifact" artifact-name="springxsd:war exploded" />
+    </root>
+  </artifact>
+</component>

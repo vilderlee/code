@@ -16,7 +16,7 @@
     <!--<bean id="test" class="com.study.spring.Test" init-method="staticMethod" destroy-method="destroy"></bean>-->
 
     <!--<bean id="test2" class="com.study.spring.Test2"/>-->
-    <!--<bean id="test3" class="com.study.spring.Test3"/>-->
+    <!--<bean id="test3" class="com.study.spring.annotation.test.parse.Test3"/>-->
 
 
 

@@ -1,5 +1,7 @@
 package com.study.spring.annotation.test.select;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 类说明:
  *
@@ -10,6 +12,7 @@ package com.study.spring.annotation.test.select;
  * VilderLee    2019/7/12      Create this file
  * </pre>
  */
+@Component
 public class HttpServer implements Server {
 
     @Override public void start() {

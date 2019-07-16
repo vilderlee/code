@@ -1,12 +1,9 @@
-package com.study.compant;
+package com.study.component;
 
-import com.study.compant.bean.AbstractTx;
-import com.study.compant.bean.Tx1002;
+import com.study.component.bean.AbstractTx;
+import com.study.component.bean.Tx1002;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * 类说明:

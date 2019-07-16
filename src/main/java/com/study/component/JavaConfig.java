@@ -1,4 +1,4 @@
-package com.study.compant;
+package com.study.component;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -14,6 +14,6 @@ import org.springframework.context.annotation.Configuration;
  * </pre>
  */
 @Configuration
-@ComponentScan("com.study.compant")
+@ComponentScan("com.study.component")
 public class JavaConfig {
 }

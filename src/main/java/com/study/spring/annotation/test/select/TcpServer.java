@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * VilderLee    2019/7/12      Create this file
  * </pre>
  */
-@Component
+@Component("tcpServer")
 public class TcpServer implements Server {
 
     @Override public void start() {

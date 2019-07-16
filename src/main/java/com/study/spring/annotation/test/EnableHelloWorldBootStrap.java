@@ -5,6 +5,8 @@ import com.study.spring.annotation.test.select.Server;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.stream.Stream;
+
 /**
  * 类说明:
  *
@@ -16,10 +18,17 @@ import org.springframework.context.annotation.Configuration;
  * </pre>
  */
 @EnableHelloWorld(proxy = Server.Type.TCP)
-@Configuration public class EnableHelloWorldBootStrap {
+@Configuration
+public class EnableHelloWorldBootStrap {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
                 EnableHelloWorldBootStrap.class);
+
+        String[] names = context.getBeanDefinitionNames();
+
+        System.out.println("------");
+        Stream.of(names).forEach(System.out::println);
+        System.out.println("------");
         Server server = context.getBean(Server.class);
         server.start();
         context.close();

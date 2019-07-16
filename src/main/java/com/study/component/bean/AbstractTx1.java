@@ -1,10 +1,7 @@
-package com.study.compant.bean;
-
-import org.springframework.beans.factory.annotation.Autowired;
+package com.study.component.bean;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 类说明:
@@ -16,7 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * VilderLee    2019/4/17      Create this file
  * </pre>
  */
-public abstract class AbstractTx {
+public abstract class AbstractTx1 {
 
 
     private int i;
@@ -28,6 +25,11 @@ public abstract class AbstractTx {
     }
 
     protected abstract void tx1002();
+
+
+    void xixi(){
+        System.out.println("xixix");
+    }
 
     public int getI() {
         return i;

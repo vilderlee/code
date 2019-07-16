@@ -1,4 +1,4 @@
-package com.study.compant.bean;
+package com.study.component.bean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
  * VilderLee    2019/4/17      Create this file
  * </pre>
  */
-public abstract class AbstractTx1 {
+public abstract class AbstractTx {
 
 
     private int i;
@@ -25,11 +25,6 @@ public abstract class AbstractTx1 {
     }
 
     protected abstract void tx1002();
-
-
-    void xixi(){
-        System.out.println("xixix");
-    }
 
     public int getI() {
         return i;

@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import java.lang.annotation.Annotation;
 import java.lang.annotation.Inherited;
+import java.lang.reflect.AnnotatedElement;
 
 /**
  * <pre>
@@ -23,5 +24,8 @@ public class Main {
         System.out.println(annotation == annotation1);
 
         System.out.println(Component.class.isAnnotationPresent(Inherited.class));
+
+        //AnnotatedElement是Class类的子类。 所以class是不是可以认为跟Class是包装类的关系呢?
+        AnnotatedElement element = Object.class;
     }
 }

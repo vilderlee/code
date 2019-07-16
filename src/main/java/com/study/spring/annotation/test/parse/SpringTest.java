@@ -20,9 +20,6 @@ import java.util.Set;
  */
 public class SpringTest {
     public static void main(String[] args) throws IOException {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
-        Test3 t = (Test3) context.getBean("test3");
-
         MetadataReaderFactory metadataReaderFactory = new CachingMetadataReaderFactory();
         MetadataReader reader = metadataReaderFactory.getMetadataReader(Test3.class.getName());
 

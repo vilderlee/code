@@ -1,6 +1,6 @@
-package com.study.compant.bean;
+package com.study.component.bean;
 
-import com.study.compant.DespositMode;
+import com.study.component.DespositMode;
 import org.springframework.core.annotation.Order;
 
 /**

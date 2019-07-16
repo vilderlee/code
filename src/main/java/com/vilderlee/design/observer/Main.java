@@ -1,6 +1,5 @@
 package com.vilderlee.design.observer;
 
-import java.util.function.Function;
 
 /**
  * 类说明:

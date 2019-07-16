@@ -17,7 +17,7 @@ public class VolitailTest {
     public static void main(String[] args) {
         Task task = new Task();
 
-        new Thread(()-> task.add()).start();
+        new Thread(() -> task.add()).start();
 
         while (task.num == 0) {
 
@@ -28,13 +28,11 @@ public class VolitailTest {
 
 }
 
+class Task {
 
+    protected volatile int num = 0;
 
-class Task{
-
-    protected  int num = 0;
-
-    public void add(){
+    public void add() {
 
         try {
             TimeUnit.SECONDS.sleep(3);

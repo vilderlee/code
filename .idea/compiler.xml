@@ -17,7 +17,7 @@
       <module name="B216-EAccountCommon" target="1.8" />
       <module name="B216-EAccountGateway" target="1.8" />
       <module name="B216-EAccountGatewayAPI" target="1.8" />
-      <module name="B216-ProjectParent" target="1.8" />
+      <module name="B216-ProjectParent" target="1.5" />
       <module name="code" target="1.8" />
       <module name="springxsd" target="1.8" />
     </bytecodeTargetLevel>

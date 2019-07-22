@@ -17,8 +17,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class Main {
 
     public static void main(String[] args) {
-//        ApplicationContext context = new AnnotationConfigApplicationContext(TransactionConfig.class);
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring-transaction.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(TransactionConfig.class);
+//        ApplicationContext context = new ClassPathXmlApplicationContext("spring-transaction.xml");
         UserDao userDao = context.getBean(UserDao.class);
         userDao.insert();
     }

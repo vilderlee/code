@@ -22,7 +22,7 @@ public class TreeMapTest {
         treeMap.put("2", "b");
         treeMap.put("1", "a");
         treeMap.put("3", "c");
-        treeMap.put(null, "d");
+        treeMap.put("4", "d");
         treeMap.put("5", null);
 
         treeMap.forEach((k, v) -> {

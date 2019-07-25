@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cpcn.payment:FastTest:v2.0.2.05-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/FastTest/v2.0.2.05-SNAPSHOT/FastTest-v2.0.2.05-20190514.110350-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/FastTest/v2.0.2.05-SNAPSHOT/FastTest-v2.0.2.05-20190514.110350-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/FastTest/v2.0.2.05-SNAPSHOT/FastTest-v2.0.2.05-20190514.110350-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

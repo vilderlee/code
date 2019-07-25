@@ -30,7 +30,7 @@ public class Provider {
             throw new Exception("This file is not empty!");
         }
         Properties properties = new Properties();
-        try (InputStream inputStream = new FileInputStream(url.getFile());) {
+        try (InputStream inputStream = new FileInputStream(url.getFile())) {
             properties.load(inputStream);
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -44,6 +44,6 @@ public class Provider {
 
     public static void main(String[] args) throws Exception {
         Provider service = new Provider();
-        service.export(new HelloServiceImpl());
+        service.export(new HelloServiceImpl());;
     }
 }

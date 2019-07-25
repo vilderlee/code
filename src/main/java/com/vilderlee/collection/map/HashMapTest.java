@@ -2,7 +2,9 @@ package com.vilderlee.collection.map;
 
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * <pre>
@@ -19,10 +21,11 @@ public class HashMapTest {
         Map map = new HashMap();
         map.put("1", "a");
         map.put("3", "c");
+        map.put("4", "d");
         map.put("2", "b");
 
         //        map.put("3", "z");
-        map.put("4", "d");
+
         //        map.put(null, "w");
         map.put("5", "e");
 

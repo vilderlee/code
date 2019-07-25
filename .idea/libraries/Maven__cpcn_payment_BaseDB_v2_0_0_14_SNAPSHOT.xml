@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: cpcn.payment:BaseDB:v2.0.0.14-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/BaseDB/v2.0.0.14-SNAPSHOT/BaseDB-v2.0.0.14-20190604.170946-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/BaseDB/v2.0.0.14-SNAPSHOT/BaseDB-v2.0.0.14-20190604.170946-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/cpcn/payment/BaseDB/v2.0.0.14-SNAPSHOT/BaseDB-v2.0.0.14-20190604.170946-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

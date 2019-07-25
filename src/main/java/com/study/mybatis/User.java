@@ -23,6 +23,7 @@ public class User implements Serializable {
         this.userName = userName;
         this.flag = flag;
         this.country = country;
+        System.out.println(toString());
     }
 
     private String userId;

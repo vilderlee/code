@@ -1,5 +1,6 @@
 package com.study.spring;
 
+import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.context.ApplicationEventPublisher;
  * </pre>
  */
 public class SendEmailService implements ApplicationEventPublisher {
-    @Override public void publishEvent(Object event) {
-
+    @Override
+    public void publishEvent(Object event) {
     }
 }

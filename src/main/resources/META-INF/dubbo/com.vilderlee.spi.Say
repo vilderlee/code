@@ -1,2 +1,3 @@
+test=com.vilderlee.spi.SayWarpper
 chinese=com.vilderlee.spi.SayByChinese
 english=com.vilderlee.spi.SayByEnglish

@@ -1,5 +1,7 @@
 package com.study.spring;
 
+import org.springframework.stereotype.Component;
+
 /**
  * 类说明:
  *
@@ -10,13 +12,12 @@ package com.study.spring;
  * VilderLee    2019/2/27      Create this file
  * </pre>
  */
+
+@Component
 public class Test2 {
-
-    private Test2(){}
-
-    private Test2(String a){}
 
     public void test2(){
         System.out.println("sahdioashdiosahdioahdio");
     }
+
 }

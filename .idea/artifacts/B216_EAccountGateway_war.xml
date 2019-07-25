@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="B216-EAccountGateway:war">
+    <output-path>$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>B216-EAccountGateway</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="EAccountGateway.war">
+      <element id="artifact" artifact-name="B216-EAccountGateway:war exploded" />
+    </root>
+  </artifact>
+</component>

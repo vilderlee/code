@@ -32,8 +32,8 @@ public class RabbitMQConnectFactory {
     private String RABBITMQ_VirtualHost = ConnectionFactory.DEFAULT_VHOST;
     private String RABBITMQ_URL = "39.104.159.18";
     private int RABBITMQ_PORT = 5672;
-    private String RABBITMQ_USERNAME = "lichao";
-    private String RABBITMQ_PASSWORD = "lichao.5220246";
+    private String RABBITMQ_USERNAME = "";
+    private String RABBITMQ_PASSWORD = "";
 
     private ConnectionFactory connectionFactory;
     private Channel channel;

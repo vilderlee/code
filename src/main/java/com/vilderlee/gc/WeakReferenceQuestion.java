@@ -1,6 +1,5 @@
 package com.vilderlee.gc;
 
-import java.lang.ref.SoftReference;
 import java.lang.ref.WeakReference;
 
 /**
@@ -15,27 +14,16 @@ import java.lang.ref.WeakReference;
  */
 public class WeakReferenceQuestion {
 
-
-
     public static void main(String[] args) {
         Object task = new Object();
-        WeakReference<Object> softReference = new WeakReference(Object.class);
+        WeakReference<Object> weakReference = new WeakReference(task);
         System.out.println(task);
 
-        System.out.println(softReference.get());
-
+        System.out.println(weakReference.get());
+        task = null;
         System.gc();
+        System.out.println(task);
 
-        System.out.println(softReference.get()+"11111111111");
-        try {
-            byte[] bytes = new byte[1 * 1024 * 1024];
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        finally {
-            System.out.println(task);
-
-            System.out.println(softReference.get());
-        }
+        System.out.println(weakReference.get());
     }
 }

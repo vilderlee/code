@@ -54,7 +54,7 @@ public class RpcFramework {
         }
         ServerSocket serverSocket = new ServerSocket(9999);
         ExecutorService executor = Executors.newFixedThreadPool(3);
-        for (; ; ) {
+        while (true ) {
             Socket socket = serverSocket.accept();
             Runnable runnable = () -> {
                 ObjectInputStream objectInputStream = null;

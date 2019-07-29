@@ -23,9 +23,9 @@ import java.util.stream.Stream;
  * VilderLee    2019/7/26      Create this file
  * </pre>
  */
-public class Tx1100CommandChain extends BaseCommandChain {
+public class Tx1100RiskCommandChain extends BaseCommandChain {
 
-    public Tx1100CommandChain() {
+    public Tx1100RiskCommandChain() {
 
         JdbcTemplate jdbcTemplate = Environment.ApplicationContext.getBean(JdbcTemplate.class);
         String sql = "SELECT * FROM RiskCommandDictionary";

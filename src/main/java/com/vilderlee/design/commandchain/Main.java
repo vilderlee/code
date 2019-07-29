@@ -24,7 +24,7 @@ public class Main {
 
         Environment.ApplicationContext = context;
         Environment.init();
-        Tx1100CommandChain tx1100CommandChain = new Tx1100CommandChain();
+        Tx1100RiskCommandChain tx1100CommandChain = new Tx1100RiskCommandChain();
         Context context1 = new Context();
 
         context1.put("txCode", "1010");

@@ -2,7 +2,6 @@ package com.vilderlee.design.commandchain;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * 类说明:
@@ -21,10 +20,5 @@ public abstract class BaseCommandChain implements CommandChain{
     @Override
     public void addCommand(Command command) {
         commands.add(command);
-    }
-
-    @Override
-    public boolean execute(Context context) throws Exception {
-        return false;
     }
 }

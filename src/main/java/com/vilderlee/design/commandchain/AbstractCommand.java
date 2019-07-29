@@ -22,10 +22,17 @@ public abstract class AbstractCommand implements Command {
         return (List) Environment.map.get(getRiskCommandValue());
     }
 
+    public RiskCommand.RiskLevelEnum getRiskLevelByTransCode(Context context){
+
+        getTxCodeList().stream().filter(RiskTransInfo->RiskTransInfo.getTxCode().equals(context.getTxCode())).findAny();
+
+        return RiskCommand.RiskLevelEnum.LEVEL_HIGH;
+    }
+
+
     public boolean checkTxCode(Context context) {
         Set<String> collect = getTxCodeList().stream().map(RiskTransInfo::getTxCode).collect(Collectors.toSet());
         return collect.contains(context.get("txCode"));
     }
-
 
 }

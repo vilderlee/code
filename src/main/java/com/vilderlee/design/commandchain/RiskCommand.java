@@ -29,10 +29,52 @@ public @interface RiskCommand {
      *
      * @return
      */
-    String RiskCommand();
+    String RiskName();
 
     /**
      * 风控等级
      */
-    int RiskLevel() default 1;
+    RiskLevelEnum RiskLevel() default RiskLevelEnum.LEVEL_HIGH;
+
+    /**
+     * 风控优先级
+     */
+    int RiskPriority() default 1;
+
+    enum RiskLevelEnum {
+        LEVEL_HIGH(1, "高等级"), LEVEL_LOW(2, "低等级");
+        private int value;
+
+        private String desc;
+
+        RiskLevelEnum(int value, String desc) {
+            this.value = value;
+            this.desc = desc;
+        }
+
+        public static RiskLevelEnum getInstance(int value){
+            for (RiskLevelEnum em : RiskLevelEnum.values()) {
+                if (em.getValue() == value) {
+                    return em;
+                }
+            }
+            return null;
+        }
+
+        public int getValue() {
+            return value;
+        }
+
+        public void setValue(int value) {
+            this.value = value;
+        }
+
+        public String getDesc() {
+            return desc;
+        }
+
+        public void setDesc(String desc) {
+            this.desc = desc;
+        }
+    }
 }

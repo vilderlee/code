@@ -7,16 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="B216-EAccountCommon" />
-        <module name="B216-EAccountGateway" />
-        <module name="B216-EAccountGatewayAPI" />
         <module name="code" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="B216-EAccountCommon" target="1.8" />
-      <module name="B216-EAccountGateway" target="1.8" />
-      <module name="B216-EAccountGatewayAPI" target="1.8" />
+      <module name="B216-EAccountCommon" target="1.5" />
+      <module name="B216-EAccountGateway" target="1.5" />
+      <module name="B216-EAccountGatewayAPI" target="1.5" />
       <module name="B216-ProjectParent" target="1.5" />
       <module name="code" target="1.8" />
       <module name="springxsd" target="1.8" />

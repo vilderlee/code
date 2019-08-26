@@ -44,7 +44,7 @@ public class Tx1100RiskCommandChain extends BaseCommandChain {
                 AnnotationMetadata annotationMetadata = ((AnnotatedBeanDefinition) beanDefinition).getMetadata();
                 if (annotationMetadata.hasAnnotation(RiskCommand.class.getName())) {
                     Map map = annotationMetadata.getAnnotationAttributes(RiskCommand.class.getName());
-                    commandBeanNameMap.put((String) map.get("RiskCommand"), s);
+                    commandBeanNameMap.put((String) map.get("RiskName"), s);
                 }
             }
         });
@@ -70,5 +70,17 @@ public class Tx1100RiskCommandChain extends BaseCommandChain {
         });
 
         return saveResult.get();
+    }
+
+    @Override
+    public boolean rollback(Context context) throws Exception {
+        super.commands.forEach(command -> {
+            try {
+                command.rollback(context);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        return false;
     }
 }

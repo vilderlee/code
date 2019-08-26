@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway" vcs="svn" />
-    <mapping directory="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI" vcs="svn" />
   </component>
 </project>

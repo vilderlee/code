@@ -16,7 +16,7 @@ import java.util.List;
  */
 public class ListSpeed {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
             list.add(i);
@@ -53,11 +53,24 @@ public class ListSpeed {
                 try {
                     throw new Exception("this is a error");
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    continue;
+                    throw e;
                 }
             }
         }
+
+//        list.forEach(i -> {
+//            System.out.println(i);
+//            if (i == 30) {
+//                try {
+//                    throw new Exception("this is a error");
+//                } catch (Exception e) {
+//                    System.out.println("youxiyouxi");
+//
+//                }
+//            }
+//        });
+
+
 
         long endTime = System.currentTimeMillis();
         System.out.println(endTime - startTime);

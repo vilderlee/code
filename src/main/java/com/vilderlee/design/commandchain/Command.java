@@ -30,4 +30,15 @@ public interface Command {
      * @throws Exception
      */
     boolean execute(Context context) throws Exception;
+
+
+    /**
+     * 责任链执行方法
+     *
+     * @return
+     * @throws Exception
+     */
+    default boolean rollback(Context context) throws Exception{
+        return true;
+    };
 }

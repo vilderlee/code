@@ -11,10 +11,6 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon/pom.xml" />
-        <option value="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway/pom.xml" />
-        <option value="$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI/pom.xml" />
-        <option value="$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0/pom.xml" />
       </list>
     </option>
   </component>

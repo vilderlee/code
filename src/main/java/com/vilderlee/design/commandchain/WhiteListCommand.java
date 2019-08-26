@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * </pre>
  */
 @Component
-@RiskCommand(RiskCommand = "11")
+@RiskCommand(RiskName = "11")
 public class WhiteListCommand extends AbstractCommand{
 
     @Override

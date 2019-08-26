@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
  * Modify Information:
  * Author        Date          Description
  * ============ ============= ============================
- * VilderLee    2019/7/24      Create this file
+ * VilderLee    2019/8/23      Create this file
  * </pre>
  */
 @Component
-public class CircleServiceImpl {
+public class Hello {
 
+    public void say(){
+        System.out.println("Hello world");
 
-    public void draw(){
-        System.out.println("Draw a Circle!");
     }
 }

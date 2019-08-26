@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
  * </pre>
  */
 @Component
-@RiskCommand(RiskCommand = "10")
+@RiskCommand(RiskName = "10")
 public class BlackListCommand extends AbstractCommand{
 
     @Override
@@ -23,6 +23,11 @@ public class BlackListCommand extends AbstractCommand{
             return true;
         }
 
+        return false;
+    }
+
+    @Override public boolean rollback(Context context) throws Exception {
+        System.out.println("black list rollback");
         return false;
     }
 

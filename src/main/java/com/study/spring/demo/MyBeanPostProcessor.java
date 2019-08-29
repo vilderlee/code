@@ -1,7 +1,6 @@
-package com.study.spring;
+package com.study.spring.demo;
 
 import org.springframework.beans.BeansException;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import java.lang.reflect.InvocationHandler;

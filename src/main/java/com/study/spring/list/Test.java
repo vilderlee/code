@@ -1,4 +1,4 @@
-package com.study.spring;
+package com.study.spring.list;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -10,17 +10,15 @@ import org.springframework.stereotype.Component;
  * Modify Information:
  * Author        Date          Description
  * ============ ============= ============================
- * VilderLee    2019/2/27      Create this file
+ * VilderLee    2019/8/27      Create this file
  * </pre>
  */
-
 @Component
-public class Test3  {
-    @Autowired
-    private Test2 test2;
+public class Test {
+
+    @Autowired private Inject inject;
 
     public void test(){
-        test2.test2();
+        inject.inject();
     }
-
 }

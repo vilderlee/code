@@ -1,4 +1,4 @@
-package com.study.spring.aop;
+package com.study.spring.list;
 
 import org.springframework.stereotype.Component;
 
@@ -9,14 +9,13 @@ import org.springframework.stereotype.Component;
  * Modify Information:
  * Author        Date          Description
  * ============ ============= ============================
- * VilderLee    2019/8/23      Create this file
+ * VilderLee    2019/8/27      Create this file
  * </pre>
  */
 @Component
-public class Hello {
+public class Inject {
 
-    public void say(){
-        System.out.println("Hello world");
-
+    public void inject(){
+        System.out.println("Inject.class");
     }
 }

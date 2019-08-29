@@ -1,4 +1,4 @@
-package com.study.spring;
+package com.study.spring.demo;
 
 import org.springframework.context.ApplicationEvent;
 

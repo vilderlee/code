@@ -3,9 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="circleServiceImpl" class="com.study.spring.aop.CircleServiceImpl"></bean>
+    <bean id="circleServiceImpl" class="com.study.spring.aop.annotation.aspectj.CircleServiceImpl"></bean>
 
-    <bean id="methodPointCutAdvice" class="com.study.spring.aop.MethodPointCutAdvice"></bean>
+    <bean id="methodPointCutAdvice" class="com.study.spring.aop.annotation.aspectj.MethodPointCutAdvice"></bean>
     <bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <property name="advice" ref="methodPointCutAdvice"></property>
         <property name="pattern" value=".*ServiceImpl.draw"/>

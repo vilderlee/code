@@ -1,4 +1,4 @@
-package com.study.spring.aop;
+package com.study.spring.aop.annotation.aspectj;
 
 import org.springframework.aop.MethodBeforeAdvice;
 

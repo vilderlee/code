@@ -1,4 +1,4 @@
-package com.study.spring.aop;
+package com.study.spring.aop.annotation.aspectj;
 
 import com.study.spring.aop.service.BaseService;
 import org.springframework.context.ApplicationContext;

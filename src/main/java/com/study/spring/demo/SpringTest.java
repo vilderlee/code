@@ -1,10 +1,9 @@
-package com.study.spring;
+package com.study.spring.demo;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.IOException;
-import java.lang.reflect.Constructor;
 
 /**
  * <pre>

@@ -6,24 +6,24 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 ">
     <context:component-scan base-package="com.study.spring"/>
-    <!--<bean id="post" class="com.study.spring.MyBeanPostProcessor"></bean>-->
-    <!--<bean id="test2" name="test2" class="com.study.spring.Test2">-->
+    <!--<bean id="post" class="com.study.spring.demo.MyBeanPostProcessor"></bean>-->
+    <!--<bean id="test2" name="test2" class="com.study.spring.demo.Test2">-->
         <!--<property name="test3" ref="test3"/>-->
     <!--</bean>-->
 
 
 
-    <!--<bean id="test" class="com.study.spring.Test" init-method="staticMethod" destroy-method="destroy"></bean>-->
+    <!--<bean id="test" class="com.study.spring.demo.Test" init-method="staticMethod" destroy-method="destroy"></bean>-->
 
-    <!--<bean id="test2" class="com.study.spring.Test2"/>-->
+    <!--<bean id="test2" class="com.study.spring.demo.Test2"/>-->
     <!--<bean id="test3" class="com.study.spring.annotation.test.parse.Test3"/>-->
 
 
 
-    <!--<bean class="com.study.spring.FactoryBeanTest"/>-->
+    <!--<bean class="com.study.spring.demo.FactoryBeanTest"/>-->
 
-    <!--<bean class="com.study.spring.SendEmailService"/>-->
-    <!--<bean class="com.study.spring.ReceiveEmailEvent">-->
+    <!--<bean class="com.study.spring.demo.SendEmailService"/>-->
+    <!--<bean class="com.study.spring.demo.ReceiveEmailEvent">-->
         <!--<constructor-arg value="https"/>-->
     <!--</bean>-->
 

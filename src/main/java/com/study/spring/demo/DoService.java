@@ -1,4 +1,5 @@
-package com.study.spring;
+package com.study.spring.demo;
+
 
 /**
  * 类说明:
@@ -10,10 +11,10 @@ package com.study.spring;
  * VilderLee    2019/3/26      Create this file
  * </pre>
  */
-public class CollectService extends AbstractTemplate {
+public class DoService extends AbstractTemplate {
 
     @Override
     protected void doIt(String message) {
-        System.out.println("CollectService:" + message);
+        System.out.println("DoService:" + message);
     }
 }

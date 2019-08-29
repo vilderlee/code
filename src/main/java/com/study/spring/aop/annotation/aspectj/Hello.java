@@ -1,4 +1,4 @@
-package com.study.spring;
+package com.study.spring.aop.annotation.aspectj;
 
 import org.springframework.stereotype.Component;
 
@@ -9,15 +9,14 @@ import org.springframework.stereotype.Component;
  * Modify Information:
  * Author        Date          Description
  * ============ ============= ============================
- * VilderLee    2019/2/27      Create this file
+ * VilderLee    2019/8/23      Create this file
  * </pre>
  */
-
 @Component
-public class Test2 {
+public class Hello {
 
-    public void test2(){
-        System.out.println("sahdioashdiosahdioahdio");
+    public void say(){
+        System.out.println("Hello world");
+
     }
-
 }

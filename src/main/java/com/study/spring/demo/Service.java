@@ -1,4 +1,4 @@
-package com.study.spring;
+package com.study.spring.demo;
 
 /**
  * 类说明:

@@ -1,5 +1,4 @@
-package com.study.spring;
-
+package com.study.spring.demo;
 
 /**
  * 类说明:
@@ -8,13 +7,14 @@ package com.study.spring;
  * Modify Information:
  * Author        Date          Description
  * ============ ============= ============================
- * VilderLee    2019/3/26      Create this file
+ * VilderLee    2019/3/27      Create this file
  * </pre>
  */
-public class DoService extends AbstractTemplate {
+public class ThirdService extends AbstractTemplate {
 
     @Override
     protected void doIt(String message) {
-        System.out.println("DoService:" + message);
+        System.out.println("ThirdService:" + message);
     }
+
 }

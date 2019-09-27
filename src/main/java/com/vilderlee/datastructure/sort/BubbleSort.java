@@ -1,6 +1,7 @@
 package com.vilderlee.datastructure.sort;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 /**
  * 类说明:
@@ -16,7 +17,7 @@ public class BubbleSort {
 
     /**
      * 冒泡排序 依次比较两个相邻的元素
-     * 在上面的五个数字中 12 8 17 31 22
+     * 在上面的五个数字中 23, 12, 34, 2, 67
      *
      * @param nums
      * @return
@@ -30,6 +31,8 @@ public class BubbleSort {
                     nums[j + 1] = tmp;
                 }
             }
+            System.out.println(String.format("第%s次排序", i));
+            Stream.of(nums).forEach(System.out::print);
         }
 
         return nums;

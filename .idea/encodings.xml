@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding" addBOMForNewFiles="with NO BOM">
-    <file url="file://$PROJECT_DIR$/springxsd" charset="UTF-8" />
+  <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../modifyCPCN/1003-ProjectParentV2.0" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../modifyCPCN/7110-EAccountCommon" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../modifyCPCN/7111-EAccountGateway" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../modifyCPCN/7111-EAccountGatewayAPI" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/demo/src/main/java/com/vilderlee/spring/condition/ConditionOnSystemName.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/demo/src/main/java/com/vilderlee/spring/condition/Main.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/demo/src/main/java/com/vilderlee/spring/condition/OnSystemNameCondition.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/demo/src/main/java/com/vilderlee/spring/condition/Test.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/AnnotationConfigApplicationContext.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/AnnotationConfigUtils.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ClassPathBeanDefinitionScanner.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ClassPathScanningCandidateComponentProvider.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ComponentScanAnnotationParser.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassParser.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassPostProcessor.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/annotation/ConfigurationClassUtils.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/support/AbstractApplicationContext.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/spring-context/src/main/java/org/springframework/context/support/PostProcessorRegistrationDelegate.java" charset="UTF-8" />
+    <file url="file://F:/framework/spring-framework/spring-framework/src/docs/asciidoc/core/core-aop.adoc" charset="UTF-8" />
   </component>
 </project>

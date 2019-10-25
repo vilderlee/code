@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Random;
+
 /**
  * 类说明:
  *
@@ -22,9 +24,11 @@ public class UserDao {
 
     @Transactional
     public void insert() {
-        User user = new User(1, "vilderlee", 25);
-        Score score = new Score(1, 1);
-        jdbcTemplate.update("insert into user (id,username, age) values (?,?,?)", user);
-        jdbcTemplate.update("insert into score (id,userID) values (,?,?)", score);
+        User user = new User(new Random().nextInt(), "vilderlee", 25);
+        Score score = new Score(new Random().nextInt(), new Random().nextInt());
+        jdbcTemplate.update("insert into user (id,username, age) values (?,?,?)", user.getId(),user
+        .getUsername(),user.getAge());
+        int a = 10/0;
+//        jdbcTemplate.update("insert into score (id,userID) values (?,?)", score.getId(),score.getUserID());
     }
 }

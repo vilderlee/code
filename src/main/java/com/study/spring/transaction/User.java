@@ -3,6 +3,8 @@ package com.study.spring.transaction;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * 类说明:
  *
@@ -15,8 +17,9 @@ import lombok.Data;
  */
 @Data
 @AllArgsConstructor
-public class User {
+public class User implements Serializable {
 
+    private static final long serialVersionUID = 2078633016894521498L;
     private int id;
 
     private String username;

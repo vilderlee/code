@@ -1,4 +1,4 @@
-package com.vilderlee.java8;
+package com.vilderlee.java8.lambda;
 
 import java.util.ArrayList;
 import java.util.HashMap;

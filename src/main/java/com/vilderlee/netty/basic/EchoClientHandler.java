@@ -1,4 +1,4 @@
-package com.vilderlee.nio.netty;
+package com.vilderlee.netty.basic;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;

@@ -1,4 +1,4 @@
-package com.vilderlee.nio;
+package com.vilderlee.nio.basic;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

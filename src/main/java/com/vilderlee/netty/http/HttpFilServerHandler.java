@@ -1,4 +1,4 @@
-package com.vilderlee.nio.nettyhttp;
+package com.vilderlee.netty.http;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

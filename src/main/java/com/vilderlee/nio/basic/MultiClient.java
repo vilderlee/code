@@ -78,14 +78,14 @@ public class MultiClient implements Runnable {
                     if (channel.finishConnect()) {
                         channel.register(selector, SelectionKey.OP_READ);
                         Scanner scanner = new Scanner(System.in);
-                        while (scanner.hasNextLine()){
-                            doWrite(socketChannel,scanner.next());
+                        while (scanner.hasNextLine()) {
+                            doWrite(socketChannel, scanner.next());
                             break;
                         }
                     }
                 }
 
-                if (key.isReadable()){
+                if (key.isReadable()) {
                     //获取连接的SocketChannel
                     SocketChannel socketChannel = (SocketChannel) key.channel();
                     //建立缓冲区，并设置缓冲区大小
@@ -95,13 +95,26 @@ public class MultiClient implements Runnable {
                     if (byteNum > 0) {
                         //现将readBuffer复位
                         readBuffer.flip();
-                        byte bytes [] = new byte[readBuffer.remaining()];
-                        bytes = readBuffer.array();
+                        byte[] bytes = readBuffer.array();
                         String receiveMsg = new String(bytes, StandardCharsets.UTF_8);
                         System.out.println("服务器端接收到的数据：" + receiveMsg);
                         //回复数据
+                        socketChannel.register(selector, SelectionKey.OP_WRITE);
                     }
                 }
+
+                if (key.isWritable()) {
+                    channel.register(selector, SelectionKey.OP_READ);
+                    Scanner scanner = new Scanner(System.in);
+                    while (scanner.hasNextLine()) {
+                        doWrite(socketChannel, scanner.next());
+                        break;
+                    }
+                }
+            } else {
+                socketChannel.close();
+                stop = true;
+                System.out.println("服务器关闭！！！");
             }
 
         } catch (IOException ex) {
@@ -114,18 +127,22 @@ public class MultiClient implements Runnable {
         boolean isConnect = socketChannel.connect(new InetSocketAddress(ip, port));
         if (isConnect) {
             socketChannel.register(selector, SelectionKey.OP_READ);
-            doWrite(socketChannel,"建立连接");
+            doWrite(socketChannel, "建立连接");
         } else {
             socketChannel.register(selector, SelectionKey.OP_CONNECT);
         }
     }
 
-    private void doWrite(SocketChannel socketChannel,String requestMsg) throws IOException {
+    private void doWrite(SocketChannel socketChannel, String requestMsg) throws IOException {
         ByteBuffer byteBuffer = ByteBuffer.allocate(requestMsg.getBytes().length);
         byteBuffer.put(requestMsg.getBytes());
         byteBuffer.flip();
-
         socketChannel.write(byteBuffer);
+        if (!"close".equals(requestMsg)) {
+            socketChannel.register(selector, SelectionKey.OP_READ);
+        } else {
+            socketChannel.register(selector, SelectionKey.OP_CONNECT);
+        }
     }
 
     public String getIp() {

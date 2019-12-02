@@ -1,9 +1,6 @@
 package com.vilderlee.datastructure.sort;
 
-import redis.clients.util.Slowlog;
-
 import java.util.Arrays;
-import java.util.UUID;
 
 /**
  * 类说明:
@@ -28,14 +25,18 @@ public class QuickSort {
         //1 基准值
         int tmp = nums[left];
 
-        while (left < right) {
+        while (left != right) {
+            //从右边开始找到比基准小的数据
             while (left < right && nums[right] > tmp) {
                 right--;
             }
+            //把这个数据移到左边
             nums[left] = nums[right];
+            //从左边开始找到比基准大的数据
             while (left < right && nums[left] < tmp) {
                 left++;
             }
+            //把这个数据移到右边
             nums[right] = nums[left];
         }
 
@@ -58,7 +59,7 @@ public class QuickSort {
         int left = low;
         int right = high;
         int tmp = nums[left];
-        while (left < right) {
+        while (left !=  right) {
             while (left < right && nums[right] >= tmp) {
                 right--;
             }
@@ -81,7 +82,7 @@ public class QuickSort {
     public static void main(String[] args) {
 
         int[] nums = { 5, 1, 3, 2, 8 };
-//        quickSort(nums, 0, 4);
+        quickSort(nums, 0, 4);
         quick2(nums, 0, 4);
 
         Arrays.stream(nums).forEach((i) -> System.out.print(i + ","));

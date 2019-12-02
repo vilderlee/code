@@ -30,7 +30,7 @@ public class MultiTimeServer implements Runnable {
             //1.开启通道
             serverSocketChannel = ServerSocketChannel.open();
             //2.绑定端口并设置连接模式为非阻塞
-            serverSocketChannel.socket().bind(new InetSocketAddress(9999),1024);
+            serverSocketChannel.socket().bind(new InetSocketAddress(9999), 1024);
             serverSocketChannel.configureBlocking(false);
             //3.创建Selector
             selector = Selector.open();
@@ -74,7 +74,7 @@ public class MultiTimeServer implements Runnable {
     /**
      * 关闭通道。多路复用器关闭以后，上面注册的channel等资源都会关闭，所以不需要重复释放资源
      */
-    public void cloes() {
+    public void close() {
 
         if (selector != null) {
             try {
@@ -100,14 +100,13 @@ public class MultiTimeServer implements Runnable {
                 //获取连接的SocketChannel
                 SocketChannel socketChannel = (SocketChannel) key.channel();
                 //建立缓冲区，并设置缓冲区大小
-                ByteBuffer readBuffer = ByteBuffer.allocate(1024);
+                ByteBuffer readBuffer = ByteBuffer.allocate(10);
                 //读取数据到缓冲区中
                 int byteNum = socketChannel.read(readBuffer);
                 if (byteNum > 0) {
                     //现将readBuffer复位
                     readBuffer.flip();
-                    byte bytes [] = new byte[readBuffer.remaining()];
-                    bytes = readBuffer.array();
+                    byte[] bytes = readBuffer.array();
                     String receiveMsg = new String(bytes, StandardCharsets.UTF_8);
                     System.out.println("服务器端接收到的数据：" + receiveMsg);
                     //回复数据

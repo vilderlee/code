@@ -8,6 +8,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.Scanner;
 
 /**
  * 类说明:
@@ -76,7 +77,11 @@ public class MultiClient implements Runnable {
                 if (key.isConnectable()) {
                     if (channel.finishConnect()) {
                         channel.register(selector, SelectionKey.OP_READ);
-                        doWrite(channel,"写入数据");
+                        Scanner scanner = new Scanner(System.in);
+                        while (scanner.hasNextLine()){
+                            doWrite(socketChannel,scanner.next());
+                            break;
+                        }
                     }
                 }
 

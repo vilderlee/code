@@ -13,10 +13,10 @@ import java.nio.ByteBuffer;
  * VilderLee    2019/8/9      Create this file
  * </pre>
  */
-public class ByteBufferTest {
+public class ByteBufferTest1 {
 
     public static void main(String[] args) {
-        ByteBuffer byteBuffer = ByteBuffer.allocate(10);
+        ByteBuffer byteBuffer = ByteBuffer.allocateDirect(10);
 
         byteBuffer.put("Hello".getBytes());
 

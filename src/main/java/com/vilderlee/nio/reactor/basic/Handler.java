@@ -28,13 +28,14 @@ final class Handler implements Runnable {
         selector.wakeup();
     }
 
-    @Override public void run() {
+    @Override
+    public void run() {
         try {
             if (state == READING) {
                 read();
             } else if (state == SENDING) {
                 send();
-            } else if(state == CLOSE){
+            } else if (state == CLOSE) {
                 close();
             }
         } catch (Exception ex) {
@@ -49,22 +50,27 @@ final class Handler implements Runnable {
 
 
     private void read() throws IOException {
-        input.clear();
-        int read = socketChannel.read(input);
-        if (inputIsComplete(read)) {
+        if (inputIsComplete()) {
             process();
         }
     }
 
-    private boolean inputIsComplete(int n) throws IOException {
-        if (n != -1) {
+    private boolean inputIsComplete() throws IOException {
+        int read;
+
+        while (true) {
+            input.clear();
+            read = socketChannel.read(input);
+            if (read == -1) {
+                return true;
+            }
             input.flip();
             Charset charset = Charset.defaultCharset();
             char[] bytes = charset.decode(input).array();
             stringBuffer = new StringBuffer(new String(bytes));
             System.out.println("Receive Message-->" + stringBuffer.toString());
+
         }
-        return true;
     }
 
     private void process() {
@@ -74,7 +80,7 @@ final class Handler implements Runnable {
             output.put(response.getBytes());
             state = SENDING;
             selectionKey.interestOps(SelectionKey.OP_WRITE);
-        }else {
+        } else {
             state = CLOSE;
         }
     }

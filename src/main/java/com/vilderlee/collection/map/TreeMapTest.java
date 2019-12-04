@@ -17,7 +17,7 @@ public class TreeMapTest {
 
     public static void main(String[] args) {
 
-        TreeMap treeMap = new TreeMap();
+        TreeMap<String, String> treeMap = new TreeMap<>();
 
         treeMap.put("2", "b");
         treeMap.put("1", "a");
@@ -41,13 +41,14 @@ public class TreeMapTest {
             }
         };
 
-        TreeMap treeMap1 = new TreeMap(comparator);
+        TreeMap<Integer, String> treeMap1 = new TreeMap<>(comparator);
 
         treeMap1.put(2, "b");
         treeMap1.put(1, "a");
         treeMap1.put(3, "c");
-        treeMap1.put(3, "d");
-        treeMap1.put(null, "e");
+        treeMap1.put(4, "d");
+        treeMap1.put(6, "e");
+        treeMap1.put(7, null);
         treeMap1.forEach((k, v) -> {
             System.out.println("key:" + k + ",value:" + v);
         });

@@ -19,7 +19,8 @@ public class JdbcTest {
         Class c = Class.forName("com.mysql.jdbc.Driver");
         Connection connection = DriverManager.getConnection("jdbc:mysql://39.104.159.18:3306/springboot","springboot","springboot");
         PreparedStatement statement = (PreparedStatement) connection.createStatement();
-        ResultSet resultSet = statement.executeQuery();
+        String sql ="";
+        ResultSet resultSet = statement.executeQuery(sql);
 //        statement.setString();
 
     }

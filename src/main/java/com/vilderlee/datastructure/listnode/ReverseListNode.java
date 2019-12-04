@@ -11,21 +11,21 @@ package com.vilderlee.datastructure.listnode;
 public class ReverseListNode {
     /**
      * 反转一个单链表
+     * <p>
+     * <p>
+     * 思路：当前节点指针指向前一个，循环。
      *
-     *
-     *  思路：当前节点指针指向前一个，循环。
      * @param head
      * @return
      */
     public static ListNode reverseList(ListNode head) {
-        ListNode cur = head;
         ListNode pre = null;
-        while (null != cur) {
-            ListNode tmp = cur;
-            ListNode next = cur.next;
-            cur.next = pre;
-            cur = next;
-            pre = tmp;
+        ListNode next = null;
+        while (null != head) {
+            next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
         }
 
         return pre;

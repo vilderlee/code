@@ -14,7 +14,7 @@ import java.util.Set;
  * VilderLee    2019/1/16      Create this file
  * </pre>
  */
-public class HashMapTest {
+public class  HashMapTest {
     public static void main(String[] args) {
 
         //允许空值、空键

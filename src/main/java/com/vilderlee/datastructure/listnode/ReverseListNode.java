@@ -15,31 +15,42 @@ public class ReverseListNode {
      * <p>
      * 思路：当前节点指针指向前一个，循环。
      *
-     * @param head
+     * @param cur
      * @return
      */
-    public static ListNode reverseList(ListNode head) {
+    public static ListNode reverseList(ListNode cur) {
         ListNode pre = null;
         ListNode next = null;
-        while (null != head) {
-            next = head.next;
-            head.next = pre;
-            pre = head;
-            head = next;
+        while (null != cur) {
+            next = cur.next;
+            cur.next = pre;
+            pre = cur;
+            cur = next;
         }
 
         return pre;
     }
 
+    public static ListNode reverseListNode(ListNode head){
+        ListNode pre = null;
+        while (head!=null){
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
+
     public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        AddNode.addNode(head, 2);
-        AddNode.addNode(head, 3);
-        AddNode.addNode(head, 4);
-        AddNode.addNode(head, 5);
+        ListNode cur = new ListNode(1);
+        AddNode.addNode(cur, 2);
+        AddNode.addNode(cur, 3);
+        AddNode.addNode(cur, 4);
+        AddNode.addNode(cur, 5);
 
-        PrintNode.print(head);
+        PrintNode.print(cur);
 
-        PrintNode.print(reverseList(head));
+        PrintNode.print(reverseListNode(cur));
     }
 }

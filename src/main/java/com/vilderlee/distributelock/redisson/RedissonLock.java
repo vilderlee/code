@@ -26,6 +26,8 @@ public class RedissonLock {
 
         lock.lock(30, TimeUnit.SECONDS);
 
+
+        lock.unlock();
     }
 
 }

@@ -10,6 +10,10 @@ package com.vilderlee.gc;
 public class GcTest {
 
     public static void main(String[] args) {
+
+
+            "".substring(1,10);
+
         System.out.println(Runtime.getRuntime().maxMemory());
         System.out.println(Runtime.getRuntime().totalMemory());
         System.out.println(Runtime.getRuntime().freeMemory());

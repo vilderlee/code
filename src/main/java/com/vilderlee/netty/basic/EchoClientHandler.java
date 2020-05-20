@@ -39,6 +39,7 @@ public class EchoClientHandler extends ChannelInboundHandlerAdapter {
         ByteBuf byteBuffer = (ByteBuf) msg;
         String string = byteBuffer.toString(CharsetUtil.UTF_8);
         System.out.println("客户端接收到了："+string);
+        ctx.channel().writeAndFlush("echo !!!");
     }
 
     @Override

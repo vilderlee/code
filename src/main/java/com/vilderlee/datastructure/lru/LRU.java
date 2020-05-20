@@ -16,6 +16,12 @@ import java.util.Map;
 public class LRU<K,V> extends LinkedHashMap<K,V>{
 
     public LRU(int initialCapacity) {
+        /**
+         * 初始容量
+         * 负载因子
+         * true 为访问顺序
+         * false 为插入顺序
+         */
         super(16, (float) 0.75, true);
         this.initialCapacity = initialCapacity;
     }
@@ -30,11 +36,19 @@ public class LRU<K,V> extends LinkedHashMap<K,V>{
 
 
     public static void main(String[] args) {
-        LRU<String,Object> lru = new LRU<>(2);
+        LRU<String,Object> lru = new LRU<>(3);
         lru.put("VilderLee", "momo");
         lru.put("wang", "momo");
         lru.put("lee", "momo");
 
+        lru.put("li", "123");
+        System.out.println("Before----");
+        lru.forEach((K,V)->{
+            System.out.println(K + " ," + V);
+        });
+
+        System.out.println("After----");
+        lru.get("wang");
         lru.forEach((K,V)->{
             System.out.println(K + " ," + V);
         });

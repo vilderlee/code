@@ -11,35 +11,46 @@ package com.vilderlee.datastructure.listnode;
 public class ReverseListNode {
     /**
      * 反转一个单链表
+     * <p>
+     * <p>
+     * 思路：当前节点指针指向前一个，循环。
      *
-     *
-     *  思路：当前节点指针指向前一个，循环。
-     * @param head
+     * @param cur
      * @return
      */
-    public static ListNode reverseList(ListNode head) {
-        ListNode cur = head;
+    public static ListNode reverseList(ListNode cur) {
         ListNode pre = null;
+        ListNode next = null;
         while (null != cur) {
-            ListNode tmp = cur;
-            ListNode next = cur.next;
+            next = cur.next;
             cur.next = pre;
+            pre = cur;
             cur = next;
-            pre = tmp;
         }
 
         return pre;
     }
 
+    public static ListNode reverseListNode(ListNode head){
+        ListNode pre = null;
+        while (head!=null){
+            ListNode next = head.next;
+            head.next = pre;
+            pre = head;
+            head = next;
+        }
+        return pre;
+    }
+
     public static void main(String[] args) {
-        ListNode head = new ListNode(1);
-        AddNode.addNode(head, 2);
-        AddNode.addNode(head, 3);
-        AddNode.addNode(head, 4);
-        AddNode.addNode(head, 5);
+        ListNode cur = new ListNode(1);
+        AddNode.addNode(cur, 2);
+        AddNode.addNode(cur, 3);
+        AddNode.addNode(cur, 4);
+        AddNode.addNode(cur, 5);
 
-        PrintNode.print(head);
+        PrintNode.print(cur);
 
-        PrintNode.print(reverseList(head));
+        PrintNode.print(reverseListNode(cur));
     }
 }

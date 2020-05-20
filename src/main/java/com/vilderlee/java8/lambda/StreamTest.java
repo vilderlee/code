@@ -1,6 +1,7 @@
 package com.vilderlee.java8.lambda;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,6 +38,8 @@ public class StreamTest {
 
         System.out.println(list.stream().mapToLong(Item::getAmout).summaryStatistics().getSum());
         System.out.println("Count:"+list.stream().mapToLong(Item::getAmout).sum());
+
+        System.out.println(list.stream().max((o1, o2) -> { return o1.getAmout().compareTo(o2.getAmout());}).get().getAmout());
     }
 
 

@@ -10,7 +10,7 @@ package com.vilderlee.proxy.cglibproxy;
  */
 public class Person {
 
-    public void eat(String something) {
+    public final void eat(String something) {
         System.out.println("我吃" + something);
     }
 

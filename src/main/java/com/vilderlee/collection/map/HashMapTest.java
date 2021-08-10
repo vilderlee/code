@@ -17,32 +17,32 @@ import java.util.Set;
 public class  HashMapTest {
     public static void main(String[] args) {
 
-        //允许空值、空键
-        Map map = new HashMap();
-        map.put("1", "a");
-        map.put("3", "c");
-        map.put("4", "d");
-        map.put("2", "b");
+//        //允许空值、空键
+//        Map map = new HashMap();
+//        map.put("1", "a");
+//        map.put("3", "c");
+//        map.put("4", "d");
+//        map.put("2", "b");
+//
+//        //        map.put("3", "z");
+//
+//        //        map.put(null, "w");
+//        map.put("5", "e");
+//
+//        map.forEach((K, V) -> {
+//            System.out.println("Key:" + K + ";Value:" + V);
+//        });
+//
+//        System.out.println("----------------------------------------------");
+//
+//        map.putIfAbsent("5", "as");
+//
+//        map.forEach((K, V) -> {
+//            System.out.println("Key:" + K + ";Value:" + V);
+//        });
+//        System.out.println("----------------------------------------------");
 
-        //        map.put("3", "z");
-
-        //        map.put(null, "w");
-        map.put("5", "e");
-
-        map.forEach((K, V) -> {
-            System.out.println("Key:" + K + ";Value:" + V);
-        });
-
-        System.out.println("----------------------------------------------");
-
-        map.putIfAbsent("5", "as");
-
-        map.forEach((K, V) -> {
-            System.out.println("Key:" + K + ";Value:" + V);
-        });
-        System.out.println("----------------------------------------------");
-
-        Map table = new Hashtable();
+        Map table = new HashMap();
         table.put("1", "a");
         table.put("2", "b");
         table.put("3", "c");
@@ -50,9 +50,15 @@ public class  HashMapTest {
         //        table.put(null, "d");
         //        table.put(null, "w");
         //        table.put("5", null);
-        System.out.println(table.size());
-        System.out.println(table.get("3"));
+//        System.out.println(table.size());
+//        System.out.println(table.get("3"));
+//
+        System.out.println(table.getOrDefault("1-" , 100));
         System.out.println("----------------------------------------------");
+
+
+
+
 
     }
 }

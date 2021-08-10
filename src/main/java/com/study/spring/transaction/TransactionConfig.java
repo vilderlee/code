@@ -28,22 +28,22 @@ import javax.sql.DataSource;
 public class TransactionConfig {
 
     @Bean
-    public DruidDataSource dataSource(){
+    public DruidDataSource dataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
-        druidDataSource.setUrl("jdbc:mysql://39.104.159.18:3306/spring");
+        druidDataSource.setUrl("jdbc:mysql://9.135.90.238:8080/test");
         druidDataSource.setUsername("root");
-        druidDataSource.setPassword("root");
+        druidDataSource.setPassword("123456");
         return druidDataSource;
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate(DataSource dataSource){
+    public JdbcTemplate jdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);
     }
 
 
     @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource){
+    public PlatformTransactionManager transactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
 }

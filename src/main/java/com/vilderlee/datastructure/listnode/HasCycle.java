@@ -10,7 +10,6 @@ package com.vilderlee.datastructure.listnode;
  */
 public class HasCycle {
     /**
-     *
      * 是否有环
      *
      * @param head
@@ -27,9 +26,24 @@ public class HasCycle {
             slow = slow.next;
             fast = fast.next.next;
 
-            if (slow==fast){
+            if (slow == fast) {
                 return true;
             }
+        }
+
+        return false;
+    }
+
+    public static boolean isCycle(ListNode listNode) {
+        if (listNode == null || listNode.next == null) return false;
+
+        ListNode slow = listNode;
+        ListNode fast = listNode;
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+
+            if (slow == fast) return true;
         }
 
         return false;

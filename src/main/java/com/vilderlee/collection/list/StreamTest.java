@@ -1,7 +1,5 @@
 package com.vilderlee.collection.list;
 
-import org.apache.commons.collections.map.HashedMap;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

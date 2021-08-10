@@ -40,7 +40,7 @@ public class HttpServer {
                     ch.pipeline().addLast("http-aggregator", new HttpObjectAggregator(65536));
                     ch.pipeline().addLast("http-encoder", new HttpResponseEncoder());
                     ch.pipeline().addLast("http-chunked", new ChunkedWriteHandler());
-                    ch.pipeline().addLast("http-fileServer", new HttpFilServerHandler());
+//                    ch.pipeline().addLast("http-fileServer", new HttpFilServerHandler());
 
                 }
             });

@@ -4,11 +4,14 @@ import io.netty.bootstrap.ServerBootstrap;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.http.HttpRequestEncoder;
+import io.netty.util.AttributeKey;
 
 /**
  * 类说明:
@@ -36,8 +39,11 @@ public class Server {
             bossEventLoopGroup = new NioEventLoopGroup();
             workerEventLoopGroup = new NioEventLoopGroup();
             ServerBootstrap serverBootstrap = new ServerBootstrap();
-            serverBootstrap.group(bossEventLoopGroup, workerEventLoopGroup).channel(NioServerSocketChannel.class)
-                    .childHandler(new InitialChannel());
+            serverBootstrap.group(bossEventLoopGroup, workerEventLoopGroup)
+                    .channel(NioServerSocketChannel.class)
+                    .childHandler(new InitialChannel())
+                    .option(ChannelOption.SO_BACKLOG, 128)
+            ;
             //绑定端口，同步等待成功
             ChannelFuture channelFuture = serverBootstrap.bind(port).sync();
             //等待服务器监听端口关闭

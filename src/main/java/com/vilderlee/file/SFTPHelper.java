@@ -4,7 +4,7 @@ import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
-import com.sun.org.apache.bcel.internal.classfile.CodeException;
+//import com.sun.org.apache.bcel.internal.classfile.CodeException;
 
 import java.io.File;
 import java.util.Properties;

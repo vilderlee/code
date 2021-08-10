@@ -45,7 +45,9 @@ public class InsertSort {
         return nums;
     }
 
+
+
     public static void main(String[] args) {
-        Arrays.stream(insertSort(new int[] { 12, 8, 17, 31, 22 })).forEach((i) -> System.out.print(i + ","));
+        Arrays.stream(insertSort(new int[]{12, 8, 1, 31, 22})).forEach((i) -> System.out.print(i + ","));
     }
 }

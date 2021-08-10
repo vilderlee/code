@@ -1,7 +1,6 @@
 package com.vilderlee.collection.map;
 
-import org.apache.commons.collections.map.HashedMap;
-
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -47,7 +46,7 @@ public class Overwirte {
     public static void main(String[] args) {
         Key key1 = new Key(1);
         Key key2 = new Key(1);
-        Map map = new HashedMap();
+        Map map = new HashMap();
         map.put(key1, "key1");
 //        map.put(key2, "key2");
 

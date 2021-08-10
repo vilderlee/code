@@ -40,8 +40,9 @@ public class ExecutorTest {
         AtomicBoolean flag = new AtomicBoolean();
         for (int i = 0; i < 20; i++) {
             Resource resource = new Resource(i, countDownLatch, flag);
-            try{
-            service.execute(resource);}catch (Exception e){
+            try {
+                service.execute(resource);
+            } catch (Exception e) {
                 e.printStackTrace();
                 System.out.println("--------------");
             }
@@ -76,24 +77,21 @@ public class ExecutorTest {
         public void run() {
 
             try {
-                System.out.println(Thread.currentThread().getName() +"sleep " + 100);
+                System.out.println(Thread.currentThread().getName() + "sleep " + 100);
                 TimeUnit.MILLISECONDS.sleep(100);
                 if (x == 3) {
                     throw new RuntimeException(Thread.currentThread().getName() + "  Iall!");
                 }
 
                 System.out.println(Thread.currentThread().getName() + "  " + x);
-            }catch (Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
                 b.set(false);
-            }finally {
+            } finally {
                 countDownLatch.countDown();
             }
         }
     }
-
-
-
 
 
     private static void printException(Runnable r) {

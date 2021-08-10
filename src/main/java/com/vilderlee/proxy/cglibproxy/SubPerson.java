@@ -9,8 +9,8 @@ package com.vilderlee.proxy.cglibproxy;
  * </pre>
  */
 public class SubPerson extends Person{
-    @Override
-    public void eat(String something) {
-        System.out.println("我就不吃" + something);
-    }
+//    @Override
+//    public void eat(String something) {
+//        System.out.println("我就不吃" + something);
+//    }
 }

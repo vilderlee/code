@@ -1,11 +1,9 @@
 package com.vilderlee.thread.executor;
 
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 
 /**
  * 类说明:
@@ -18,15 +16,31 @@ import java.util.concurrent.TimeUnit;
  * </pre>
  */
 public class NewExecutors {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+
         String threadName = "testFactory";
 
         ProcessThreadFactory processThreadFactory = new ProcessThreadFactory("123");
-        ExecutorService executor = new ThreadPoolExecutor(0, 5, 0, TimeUnit.SECONDS, new ArrayBlockingQueue<>(3),
+        ExecutorService executor = new ThreadPoolExecutor(3, 5, 0, TimeUnit.SECONDS, new LinkedBlockingQueue<>(3),
                 processThreadFactory, new ThreadPoolExecutor.AbortPolicy());
-        Task task = new Task("VilderLee");
-        executor.execute(task);
 
+
+        List<Future> list = new ArrayList<>();
+        CountDownLatch c = new CountDownLatch(10);
+        for (int i = 0; i < 10; i++) {
+            Task task = new Task(c, "VilderLee");
+            Future<String> f = executor.submit(task);
+            list.add(f);
+        }
+        if (!c.await(20, TimeUnit.SECONDS)) {
+            System.out.println("456456");
+        }
+
+        for (Future f : list) {
+            System.out.println(f.get());
+        }
+
+        System.out.println("123213123123");
     }
 
 
@@ -40,7 +54,8 @@ public class NewExecutors {
             namePrefix = "Process-" + institutionID + "-Thread-";
         }
 
-        @Override public Thread newThread(Runnable r) {
+        @Override
+        public Thread newThread(Runnable r) {
             Thread t = new Thread(group, r, namePrefix, 0);
             if (t.isDaemon()) {
                 t.setDaemon(false);
@@ -53,23 +68,28 @@ public class NewExecutors {
     }
 
 
-    static class Task implements Runnable{
+    static class Task implements Callable<String> {
 
         private String name;
 
-        public Task(String name) {
+        private CountDownLatch c;
+
+        public Task(CountDownLatch c, String name) {
             this.name = name;
+            this.c = c;
         }
 
         @Override
-        public void run() {
-
-            System.out.println("Test:" + name + ":" + Thread.currentThread().getName());
+        public String call() {
             try {
+                System.out.println("Test:" + name + ":" + Thread.currentThread().getName());
                 TimeUnit.SECONDS.sleep(10);
-            } catch (InterruptedException e) {
+                return "Test123:" + name + ":" + Thread.currentThread().getName();
+            } catch (Exception e) {
+                return "null";
+            } finally {
+                c.countDown();
             }
-
         }
     }
 }

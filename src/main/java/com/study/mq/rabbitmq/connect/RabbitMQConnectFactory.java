@@ -11,9 +11,9 @@ import com.rabbitmq.client.DeliverCallback;
 import com.rabbitmq.client.Envelope;
 import com.rabbitmq.client.MessageProperties;
 import com.vilderlee.serialize.SerializeUtil;
-import org.apache.commons.collections.map.HashedMap;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
@@ -80,7 +80,7 @@ public class RabbitMQConnectFactory {
              *  Map<String, Object> arguments    额外参数
              */
             //11.声明一个Queue，如果MQ服务器中没有则新建。
-            Map<String, Object> arguments = new HashedMap();
+            Map<String, Object> arguments = new HashMap<>();
 //            //设置过期时间(Time To Live简称TTL)
 //            arguments.put("x-message-ttl", 60000);
 //            //设置队列长度

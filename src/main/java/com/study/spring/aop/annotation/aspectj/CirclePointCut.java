@@ -19,11 +19,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class CirclePointCut {
 
-    @Pointcut("execution(* com.study.spring.aop.annotation.aspectj.CircleServiceImpl.*(..))")
-    public void pointCut(){}
+    @Pointcut("execution(* com.study.spring.aop.annotation.aspectj.*.*(..)) " +
+            "&& !execution(* com.study.spring.aop.annotation.aspectj.CircleServiceImpl.*(..))")
+    public void pointCut() {
+    }
 
     @Before("pointCut()")
-    public void before(){
+    public void before() {
         System.out.println("Before------------------");
     }
 }

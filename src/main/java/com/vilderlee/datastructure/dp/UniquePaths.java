@@ -19,6 +19,12 @@ package com.vilderlee.datastructure.dp;
  */
 public class UniquePaths {
 
+    /**
+     * dp[m][n] = dp[m-1]dp[n] + dp[m]dp[n-1]
+     * @param m
+     * @param n
+     * @return
+     */
     public int uniquePaths(int m, int n) {
         if (m <= 0 || n <= 0) {
             return 0;

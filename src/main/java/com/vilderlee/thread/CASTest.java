@@ -1,7 +1,5 @@
 package com.vilderlee.thread;
 
-import sun.misc.Unsafe;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**

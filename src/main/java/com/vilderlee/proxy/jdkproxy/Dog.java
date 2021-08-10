@@ -10,7 +10,8 @@ package com.vilderlee.proxy.jdkproxy;
  */
 public class Dog implements Eat {
 
-    @Override public void eat(String something) {
+    @Override
+    public final void eat(String something) {
         System.out.println("我吃" + something);
     }
 }

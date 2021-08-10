@@ -15,10 +15,9 @@ import com.alibaba.dubbo.rpc.Protocol;
  */
 public class DubboSPITest {
     public static void main(String[] args) {
-        Protocol transporter = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
-
-
-        Say say1 = ExtensionLoader.getExtensionLoader(Say.class).getAdaptiveExtension();
+//        Protocol transporter = ExtensionLoader.getExtensionLoader(Protocol.class).getAdaptiveExtension();
+        final ExtensionLoader<Say> extensionLoader = ExtensionLoader.getExtensionLoader(Say.class);
+        Say say1 = extensionLoader.getAdaptiveExtension();
         URL url = URL.valueOf("test://localhost/test?say=english&hehe=english");
         say1.export(url);
     }

@@ -19,7 +19,7 @@ public class ReflectTest {
         TestHolder testHolder = new TestHolder();
         Class c = testHolder.getClass();
         Method method = c.getMethod("setString", String.class);
-        method.invoke(testHolder,"hello world!");
+        method.invoke(null,"hello world!");
         Method method1 = c.getMethod("test", null);
         method1.invoke(testHolder);
     }

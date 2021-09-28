@@ -12,6 +12,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/testJavaAgent/pom.xml" />
+        <option value="$PROJECT_DIR$/onlineCodeComplier/pom.xml" />
       </list>
     </option>
   </component>
